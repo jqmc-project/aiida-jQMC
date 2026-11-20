@@ -1,0 +1,68 @@
+Program starts 2026-10-29 10:18:44
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]']
+
+Input file = lrdmc_bra_invalid.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=lrdmc-bra
+  restart=False
+  restart_chk=restart_lr.h5
+  hamiltonian_h5=hamiltonian_data.h5
+
+**section:lrdmc-bra**
+  num_mcmc_steps=60
+  num_gfmc_warmup_steps=10
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 8 (per MPI rank).
+
+The default value of mcmc_seed = 34456.
+The default value of number_of_walkers = 4.
+The default value of max_time = 86400.
+The default value of verbosity = low.
+***Lattice Regularized diffusion Monte Carlo***
+The default value of alat = 0.3.
+The default value of non_local_move = tmove.
+The default value of num_gfmc_bin_blocks = 10.
+The default value of num_gfmc_collect_steps = 5.
+The default value of E_scf = 0.0.
+The default value of atomic_force = False.
+The default value of compute_stress = False.
+The default value of use_swct = False.
+The default value of epsilon_PW = 0.0.
+The default value of num_mcmc_per_measurement = 40 (= max(1, round(40 * (0.30 / alat)**2)) at alat = 0.3).
+

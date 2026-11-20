@@ -1,0 +1,20 @@
+# Third-party pseudopotentials read by the Quantum ESPRESSO fixtures.
+#
+# The files are not kept in git. tests/_test_data_cache.py downloads each one
+# from `url` into the host-local test-data cache, checks the bytes against
+# `sha256` (the upstream file, unmodified), and the `data_with_pseudopotentials`
+# fixture links it at every path of `locations` (relative to this directory) in
+# its mirror of tests/data. jqmc-tool reads the pseudopotential named in
+# data-file-schema.xml from the save directory, hence the copies there.
+#
+# Pre-populate the cache with `python -m tests._test_data_cache`.
+
+[[pseudopotential]]
+name = "Li.ccECP.upf"
+url = "https://pseudopotentiallibrary.org/recipes/Li/ccECP/Li.ccECP.upf"
+sha256 = "8e1a4624548d2a6d7d284c0c377bd870e592e39dae178a9b86493091b6d0291b"
+locations = [
+  "qe/Li_gamma/out/li.save/Li.ccECP.upf",
+  "qe/Li_k_twist/out/li_twist.save/Li.ccECP.upf",
+  "tiling/qe/out/li_tiling.save/Li.ccECP.upf",
+]

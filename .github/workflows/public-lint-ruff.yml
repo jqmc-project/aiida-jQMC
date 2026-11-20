@@ -1,0 +1,35 @@
+# Ruff lint of public aiida-jQMC: needs no jqmc. It runs in jqmc-project/aiida-jQMC
+# only; the same ruff version lints the private development repository.
+
+name: aiida-jQMC public ruff lint
+
+on:
+  push:
+    # As jQMC: the public branches; other branches are checked by pull_request.
+    branches: [main, rc, rc-gh-pages]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-lint-ruff-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: ruff lint
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install ruff==0.17.5
+      - run: ruff check .
+      - run: ruff format --check .

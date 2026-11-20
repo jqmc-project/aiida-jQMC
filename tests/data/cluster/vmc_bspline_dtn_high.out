@@ -1,0 +1,971 @@
+Program starts 2026-10-29 20:03:12
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048), CpuDevice(id=4096), CpuDevice(id=6144), CpuDevice(id=8192), CpuDevice(id=10240), CpuDevice(id=12288), CpuDevice(id=14336), CpuDevice(id=16384), CpuDevice(id=18432), CpuDevice(id=20480), CpuDevice(id=22528), CpuDevice(id=24576), CpuDevice(id=26624), CpuDevice(id=28672), CpuDevice(id=30720), CpuDevice(id=32768), CpuDevice(id=34816), CpuDevice(id=36864), CpuDevice(id=38912), CpuDevice(id=40960), CpuDevice(id=43008), CpuDevice(id=45056), CpuDevice(id=47104), CpuDevice(id=49152), CpuDevice(id=51200), CpuDevice(id=53248), CpuDevice(id=55296), CpuDevice(id=57344), CpuDevice(id=59392), CpuDevice(id=61440), CpuDevice(id=63488), CpuDevice(id=65536), CpuDevice(id=67584), CpuDevice(id=69632), CpuDevice(id=71680), CpuDevice(id=73728), CpuDevice(id=75776), CpuDevice(id=77824), CpuDevice(id=79872), CpuDevice(id=81920), CpuDevice(id=83968), CpuDevice(id=86016), CpuDevice(id=88064), CpuDevice(id=90112), CpuDevice(id=92160), CpuDevice(id=94208), CpuDevice(id=96256), CpuDevice(id=98304), CpuDevice(id=100352), CpuDevice(id=102400), CpuDevice(id=104448), CpuDevice(id=106496), CpuDevice(id=108544), CpuDevice(id=110592), CpuDevice(id=112640), CpuDevice(id=114688), CpuDevice(id=116736), CpuDevice(id=118784), CpuDevice(id=120832), CpuDevice(id=122880), CpuDevice(id=124928), CpuDevice(id=126976), CpuDevice(id=129024), CpuDevice(id=131072), CpuDevice(id=133120), CpuDevice(id=135168), CpuDevice(id=137216), CpuDevice(id=139264), CpuDevice(id=141312), CpuDevice(id=143360), CpuDevice(id=145408), CpuDevice(id=147456), CpuDevice(id=149504), CpuDevice(id=151552), CpuDevice(id=153600), CpuDevice(id=155648), CpuDevice(id=157696), CpuDevice(id=159744), CpuDevice(id=161792), CpuDevice(id=163840), CpuDevice(id=165888), CpuDevice(id=167936), CpuDevice(id=169984), CpuDevice(id=172032), CpuDevice(id=174080), CpuDevice(id=176128), CpuDevice(id=178176), CpuDevice(id=180224), CpuDevice(id=182272), CpuDevice(id=184320), CpuDevice(id=186368), CpuDevice(id=188416), CpuDevice(id=190464), CpuDevice(id=192512), CpuDevice(id=194560), CpuDevice(id=196608), CpuDevice(id=198656), CpuDevice(id=200704), CpuDevice(id=202752), CpuDevice(id=204800), CpuDevice(id=206848), CpuDevice(id=208896), CpuDevice(id=210944), CpuDevice(id=212992), CpuDevice(id=215040), CpuDevice(id=217088), CpuDevice(id=219136), CpuDevice(id=221184), CpuDevice(id=223232), CpuDevice(id=225280), CpuDevice(id=227328), CpuDevice(id=229376), CpuDevice(id=231424), CpuDevice(id=233472), CpuDevice(id=235520), CpuDevice(id=237568), CpuDevice(id=239616), CpuDevice(id=241664), CpuDevice(id=243712)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]', 'Rank 2: [CpuDevice(id=4096)]', 'Rank 3: [CpuDevice(id=6144)]', 'Rank 4: [CpuDevice(id=8192)]', 'Rank 5: [CpuDevice(id=10240)]', 'Rank 6: [CpuDevice(id=12288)]', 'Rank 7: [CpuDevice(id=14336)]', 'Rank 8: [CpuDevice(id=16384)]', 'Rank 9: [CpuDevice(id=18432)]', 'Rank 10: [CpuDevice(id=20480)]', 'Rank 11: [CpuDevice(id=22528)]', 'Rank 12: [CpuDevice(id=24576)]', 'Rank 13: [CpuDevice(id=26624)]', 'Rank 14: [CpuDevice(id=28672)]', 'Rank 15: [CpuDevice(id=30720)]', 'Rank 16: [CpuDevice(id=32768)]', 'Rank 17: [CpuDevice(id=34816)]', 'Rank 18: [CpuDevice(id=36864)]', 'Rank 19: [CpuDevice(id=38912)]', 'Rank 20: [CpuDevice(id=40960)]', 'Rank 21: [CpuDevice(id=43008)]', 'Rank 22: [CpuDevice(id=45056)]', 'Rank 23: [CpuDevice(id=47104)]', 'Rank 24: [CpuDevice(id=49152)]', 'Rank 25: [CpuDevice(id=51200)]', 'Rank 26: [CpuDevice(id=53248)]', 'Rank 27: [CpuDevice(id=55296)]', 'Rank 28: [CpuDevice(id=57344)]', 'Rank 29: [CpuDevice(id=59392)]', 'Rank 30: [CpuDevice(id=61440)]', 'Rank 31: [CpuDevice(id=63488)]', 'Rank 32: [CpuDevice(id=65536)]', 'Rank 33: [CpuDevice(id=67584)]', 'Rank 34: [CpuDevice(id=69632)]', 'Rank 35: [CpuDevice(id=71680)]', 'Rank 36: [CpuDevice(id=73728)]', 'Rank 37: [CpuDevice(id=75776)]', 'Rank 38: [CpuDevice(id=77824)]', 'Rank 39: [CpuDevice(id=79872)]', 'Rank 40: [CpuDevice(id=81920)]', 'Rank 41: [CpuDevice(id=83968)]', 'Rank 42: [CpuDevice(id=86016)]', 'Rank 43: [CpuDevice(id=88064)]', 'Rank 44: [CpuDevice(id=90112)]', 'Rank 45: [CpuDevice(id=92160)]', 'Rank 46: [CpuDevice(id=94208)]', 'Rank 47: [CpuDevice(id=96256)]', 'Rank 48: [CpuDevice(id=98304)]', 'Rank 49: [CpuDevice(id=100352)]', 'Rank 50: [CpuDevice(id=102400)]', 'Rank 51: [CpuDevice(id=104448)]', 'Rank 52: [CpuDevice(id=106496)]', 'Rank 53: [CpuDevice(id=108544)]', 'Rank 54: [CpuDevice(id=110592)]', 'Rank 55: [CpuDevice(id=112640)]', 'Rank 56: [CpuDevice(id=114688)]', 'Rank 57: [CpuDevice(id=116736)]', 'Rank 58: [CpuDevice(id=118784)]', 'Rank 59: [CpuDevice(id=120832)]', 'Rank 60: [CpuDevice(id=122880)]', 'Rank 61: [CpuDevice(id=124928)]', 'Rank 62: [CpuDevice(id=126976)]', 'Rank 63: [CpuDevice(id=129024)]', 'Rank 64: [CpuDevice(id=131072)]', 'Rank 65: [CpuDevice(id=133120)]', 'Rank 66: [CpuDevice(id=135168)]', 'Rank 67: [CpuDevice(id=137216)]', 'Rank 68: [CpuDevice(id=139264)]', 'Rank 69: [CpuDevice(id=141312)]', 'Rank 70: [CpuDevice(id=143360)]', 'Rank 71: [CpuDevice(id=145408)]', 'Rank 72: [CpuDevice(id=147456)]', 'Rank 73: [CpuDevice(id=149504)]', 'Rank 74: [CpuDevice(id=151552)]', 'Rank 75: [CpuDevice(id=153600)]', 'Rank 76: [CpuDevice(id=155648)]', 'Rank 77: [CpuDevice(id=157696)]', 'Rank 78: [CpuDevice(id=159744)]', 'Rank 79: [CpuDevice(id=161792)]', 'Rank 80: [CpuDevice(id=163840)]', 'Rank 81: [CpuDevice(id=165888)]', 'Rank 82: [CpuDevice(id=167936)]', 'Rank 83: [CpuDevice(id=169984)]', 'Rank 84: [CpuDevice(id=172032)]', 'Rank 85: [CpuDevice(id=174080)]', 'Rank 86: [CpuDevice(id=176128)]', 'Rank 87: [CpuDevice(id=178176)]', 'Rank 88: [CpuDevice(id=180224)]', 'Rank 89: [CpuDevice(id=182272)]', 'Rank 90: [CpuDevice(id=184320)]', 'Rank 91: [CpuDevice(id=186368)]', 'Rank 92: [CpuDevice(id=188416)]', 'Rank 93: [CpuDevice(id=190464)]', 'Rank 94: [CpuDevice(id=192512)]', 'Rank 95: [CpuDevice(id=194560)]', 'Rank 96: [CpuDevice(id=196608)]', 'Rank 97: [CpuDevice(id=198656)]', 'Rank 98: [CpuDevice(id=200704)]', 'Rank 99: [CpuDevice(id=202752)]', 'Rank 100: [CpuDevice(id=204800)]', 'Rank 101: [CpuDevice(id=206848)]', 'Rank 102: [CpuDevice(id=208896)]', 'Rank 103: [CpuDevice(id=210944)]', 'Rank 104: [CpuDevice(id=212992)]', 'Rank 105: [CpuDevice(id=215040)]', 'Rank 106: [CpuDevice(id=217088)]', 'Rank 107: [CpuDevice(id=219136)]', 'Rank 108: [CpuDevice(id=221184)]', 'Rank 109: [CpuDevice(id=223232)]', 'Rank 110: [CpuDevice(id=225280)]', 'Rank 111: [CpuDevice(id=227328)]', 'Rank 112: [CpuDevice(id=229376)]', 'Rank 113: [CpuDevice(id=231424)]', 'Rank 114: [CpuDevice(id=233472)]', 'Rank 115: [CpuDevice(id=235520)]', 'Rank 116: [CpuDevice(id=237568)]', 'Rank 117: [CpuDevice(id=239616)]', 'Rank 118: [CpuDevice(id=241664)]', 'Rank 119: [CpuDevice(id=243712)]']
+
+jax:    0.7.2
+jaxlib: 0.7.2
+numpy:  2.4.6
+python: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+device info: cpu-120, 1 local devices"
+process_count: 120
+platform: uname_result(system='Linux', node='test-host', release='test-release', version='test-version', machine='x86_64')
+XLA_FLAGS=--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1
+Input file = aiida.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=vmc
+  mcmc_seed=34456
+  number_of_walkers=4
+  verbosity=high
+  restart=False
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+  max_time=1620
+
+**section:vmc**
+  num_mcmc_steps=100
+  num_mcmc_per_measurement=40
+  num_mcmc_warmup_steps=30
+  num_mcmc_bin_blocks=10
+  Dt=1.5
+  epsilon_AS=0.0
+  num_opt_steps=4
+  wf_dump_freq=1
+  opt_J1_param=False
+  opt_J2_param=False
+  opt_J3_param=False
+  opt_JDTN_u_param=True
+  opt_JDTN_chi_param=True
+  opt_JDTN_f_param=True
+  opt_geminal=False
+  fix_geminal_rank=0
+  opt_J3_basis_exp=False
+  opt_J3_basis_coeff=False
+  opt_lambda_basis_exp=False
+  opt_lambda_basis_coeff=False
+  optimizer_kwargs={'method': 'sr', 'delta': 0.15, 'epsilon': 0.001, 'cg_flag': True, 'cg_max_iter': 10000, 'cg_tol': 1e-08, 'use_lm': True, 'lm_subspace_dim': 0, 'lm_cond': 0.001}
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 1 (per MPI rank).
+
+***WF optimization with Variational Monte Carlo***
+
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+  initial r_up_carts= [[[ 0.82185291  5.34632169  5.06358598]
+  [ 2.63269215  2.00822513  2.98818198]
+  [ 4.99696027  0.1576711   5.08472815]
+  [ 2.84658253  2.33885817  2.29649578]]
+
+ [[ 5.22890328  5.00156662  0.43420081]
+  [ 2.98831184  2.20872736  2.07908483]
+  [ 5.08215065  5.18100933  9.35326531]
+  [ 2.5336489   2.45781015  3.37035943]]
+
+ [[ 4.85454596  5.12642331  0.53956843]
+  [ 2.42995203  2.3428736   2.20672796]
+  [ 5.08317791  5.079135   10.05243427]
+  [ 1.87814079  2.52978824  2.8467725 ]]
+
+ [[ 5.05427825  5.12529824  0.30274764]
+  [ 2.68608297  2.38167056  3.46809295]
+  [ 5.46101135  5.14688344  9.81497843]
+  [ 2.61369149  2.4359915   2.79958267]]]
+  initial r_dn_carts = [[[0.32633906 4.81650122 4.704023  ]
+  [2.48486771 2.81748791 2.64605168]
+  [5.51682235 4.72744096 0.7953565 ]
+  [2.83529135 2.48161217 2.57636124]]
+
+ [[5.04836024 4.75423344 0.90200447]
+  [2.36820937 2.61844421 2.78779491]
+  [5.14669875 0.54571554 5.56436261]
+  [2.43252772 2.14864846 2.62295188]]
+
+ [[5.0125491  5.18269021 9.8230323 ]
+  [2.39687106 2.10747475 2.04433814]
+  [0.16597895 0.18700466 0.19818154]
+  [2.37593292 2.22363769 2.66097995]]
+
+ [[4.9536418  4.86538849 0.16898051]
+  [2.08765369 2.34683118 2.10326017]
+  [4.60858123 4.47373946 0.48446569]
+  [3.24493359 2.8154108  2.79477041]]]
+  initial r_up_carts.shape = (4, 4, 3)
+  initial r_dn_carts.shape = (4, 4, 3)
+
+The number of MPI process = 120.
+The number of walkers assigned for each MPI process = 4.
+
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Full Precision (FP64)
+Zone detail:
+  ao_eval: float64
+  ao_grad_lap: float64
+  coulomb: float64
+  det_eval: float64
+  det_grad_lap: float64
+  det_ratio: float64
+  ewald: float64
+  jastrow_eval: float64
+  jastrow_grad_lap: float64
+  jastrow_ratio: float64
+  local_energy: float64
+  mo_eval: float64
+  mo_grad: float64
+  mo_lap: float64
+  swct: float64
+  wf_eval: float64
+  wf_kinetic: float64
+  wf_ratio: float64
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = True
+  vec A = [0.         5.08430814 5.08430814] Bohr
+  vec B = [5.08430814 0.         5.08430814] Bohr
+  vec C = [5.08430814 5.08430814 0.        ] Bohr
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  Si, Si, 14.0, 0.00000000, 0.00000000, 0.00000000
+  Si, Si, 14.0, 2.54215407, 2.54215407, 2.54215407
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**Ewald_data
+  eta = 0.633656 Bohr^-1
+  r_real_cut = 7.5728 Bohr
+  g_max = 6.0812 Bohr^-1
+  N_real_images = 381
+  N_g = 964
+  ii_energy = -8.4759584159 Ha
+**SD_data
+  occupied MO rows (up, dn) = (4, 4)
+  num_electron_up = 4
+  num_electron_dn = 4
+  time_reversal = True
+**MOs_data
+  Number of MOs = 4
+  dim. of MOs coeff = (4, 4)
+**AOs_bspline_data
+  Number of AOs = 4
+  spline grid shape (N0, N1, N2) = (36, 36, 36)
+  spline order (degree) = 5
+  control points per AO = 46656
+  total stored coefficients (num_ao * cp_per_ao) = 186624
+  complex (k != 0) path = False
+**MOs_data
+  Number of MOs = 4
+  dim. of MOs coeff = (4, 4)
+**AOs_bspline_data
+  Number of AOs = 4
+  spline grid shape (N0, N1, N2) = (36, 36, 36)
+  spline order (degree) = 5
+  control points per AO = 46656
+  total stored coefficients (num_ao * cp_per_ao) = 186624
+  complex (k != 0) path = False
+**Jastrow_DTN_data
+  terms: use_u=True, use_chi=True, use_f=True; electron-nucleus cusp constrained; C=4
+  orders: N_u=8, N_chi=8, N_eN=4, N_ee=4
+  cutoffs: L_u=3.4154, L_chi=[3.4153913241259723], L_f=[1.7076956620629862]
+  cutoff ratios: u=0.9500, chi=[0.95], f=[0.95] (comoving volumetric stress policy)
+  indep coefs: alpha=(2, 8), beta=(1, 8), gamma=(1, 57)
+==================================================================
+The chosen optimizer is 'sr'.
+  The homemade 'SR (aka natural gradient)' optimizer is used for wavefunction optimization.
+  use_lm=True, lm_subspace_dim=0: accelerated SR (aSR) gamma scaling.
+  Hyperparameters: asr_fallback_gamma=0.1, asr_gamma_max=0.5, cg_flag=True, cg_max_iter=10000, cg_tol=1e-08, delta=0.15, epsilon=0.001, lm_cond=0.001, lm_reference_weight_min=0.9, lm_subspace_dim=0, method=sr, use_device_collectives=False, use_device_optimizer=False, use_lm=True
+
+external_control_opt.toml is generated. 
+
+[memory] stage=optimize_pre_loop, RSS_peak_max=0.26 GB
+==================================================================
+Optimization step = 1/4.
+==================================================================
+Sampling steps this iteration = 100.
+Warmup steps = 30.
+Bin blocks = 10.
+
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 5.23 sec.
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.40 GB
+Start MCMC
+  Progress: MCMC step = 0/100: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/100: 1.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 2/100: 2.0 %. Elapsed time = 0.7 sec.
+  Progress: MCMC step = 3/100: 3.0 %. Elapsed time = 0.7 sec.
+  Progress: MCMC step = 4/100: 4.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 5/100: 5.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 6/100: 6.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 7/100: 7.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 8/100: 8.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 9/100: 9.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 10/100: 10.0 %. Elapsed time = 1.2 sec.
+  Progress: MCMC step = 11/100: 11.0 %. Elapsed time = 1.2 sec.
+  Progress: MCMC step = 12/100: 12.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 13/100: 13.0 %. Elapsed time = 1.4 sec.
+  Progress: MCMC step = 14/100: 14.0 %. Elapsed time = 1.4 sec.
+  Progress: MCMC step = 15/100: 15.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 16/100: 16.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 17/100: 17.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 18/100: 18.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 19/100: 19.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 20/100: 20.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 21/100: 21.0 %. Elapsed time = 1.9 sec.
+  Progress: MCMC step = 22/100: 22.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 23/100: 23.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 24/100: 24.0 %. Elapsed time = 2.1 sec.
+  Progress: MCMC step = 25/100: 25.0 %. Elapsed time = 2.1 sec.
+  Progress: MCMC step = 26/100: 26.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 27/100: 27.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 28/100: 28.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 29/100: 29.0 %. Elapsed time = 2.4 sec.
+  Progress: MCMC step = 30/100: 30.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 31/100: 31.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 32/100: 32.0 %. Elapsed time = 2.6 sec.
+  Progress: MCMC step = 33/100: 33.0 %. Elapsed time = 2.6 sec.
+  Progress: MCMC step = 34/100: 34.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 35/100: 35.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 36/100: 36.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 37/100: 37.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 38/100: 38.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 39/100: 39.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 40/100: 40.0 %. Elapsed time = 3.1 sec.
+  Progress: MCMC step = 41/100: 41.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 42/100: 42.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 43/100: 43.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 44/100: 44.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 45/100: 45.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 46/100: 46.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 47/100: 47.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 48/100: 48.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 49/100: 49.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 50/100: 50.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 51/100: 51.0 %. Elapsed time = 3.8 sec.
+  Progress: MCMC step = 52/100: 52.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 53/100: 53.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 54/100: 54.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 55/100: 55.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 56/100: 56.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 57/100: 57.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 58/100: 58.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 59/100: 59.0 %. Elapsed time = 4.3 sec.
+  Progress: MCMC step = 60/100: 60.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 61/100: 61.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 62/100: 62.0 %. Elapsed time = 4.5 sec.
+  Progress: MCMC step = 63/100: 63.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 64/100: 64.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 65/100: 65.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 66/100: 66.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 67/100: 67.0 %. Elapsed time = 4.8 sec.
+  Progress: MCMC step = 68/100: 68.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 69/100: 69.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 70/100: 70.0 %. Elapsed time = 5.0 sec.
+  Progress: MCMC step = 71/100: 71.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 72/100: 72.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 73/100: 73.0 %. Elapsed time = 5.2 sec.
+  Progress: MCMC step = 74/100: 74.0 %. Elapsed time = 5.2 sec.
+  Progress: MCMC step = 75/100: 75.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 76/100: 76.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 77/100: 77.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 78/100: 78.0 %. Elapsed time = 5.5 sec.
+  Progress: MCMC step = 79/100: 79.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 80/100: 80.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 81/100: 81.0 %. Elapsed time = 5.7 sec.
+  Progress: MCMC step = 82/100: 82.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 83/100: 83.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 84/100: 84.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 85/100: 85.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 86/100: 86.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 87/100: 87.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 88/100: 88.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 89/100: 89.0 %. Elapsed time = 6.2 sec.
+  Progress: MCMC step = 90/100: 90.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 91/100: 91.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 92/100: 92.0 %. Elapsed time = 6.4 sec.
+  Progress: MCMC step = 93/100: 93.0 %. Elapsed time = 6.5 sec.
+  Progress: MCMC step = 94/100: 94.0 %. Elapsed time = 6.5 sec.
+  Progress: MCMC step = 95/100: 95.0 %. Elapsed time = 6.6 sec.
+  Progress: MCMC step = 96/100: 96.0 %. Elapsed time = 6.7 sec.
+  Progress: MCMC step = 97/100: 97.0 %. Elapsed time = 6.7 sec.
+  Progress: MCMC step = 98/100: 98.0 %. Elapsed time = 6.8 sec.
+  Progress: MCMC step = 99/100: 99.0 %. Elapsed time = 6.8 sec.
+  Progress: MCMC step = 100/100: 100.0 %. Elapsed time = 6.9 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 100 steps. = 13.00 sec.
+Pre-compilation time for MCMC = 5.14 sec.
+Net total time for MCMC = 7.86 sec.
+Elapsed times per MCMC step, averaged over 100 steps.
+  Time for MCMC update = 3.88 msec.
+  Time for computing e_L = 9.58 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 10.68 msec.
+  Time for computing de_L/dc = 38.97 msec.
+  Time for MPI barrier after MCMC update = 0.01 msec.
+  Time for misc. (others) = 15.45 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 69.04 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.43 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -7.01089 +- 0.00710 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 81.
+Optimization batch: route=host, local samples=280, sampler ranks=120, real coordinates=81, storage parameters=81.
+  Derivative source j3_poly_alpha: O shape=(280, 2, 8), D shape=(280, 2, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_beta: O shape=(280, 1, 8), D shape=(280, 1, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_gamma: O shape=(280, 1, 57), D shape=(280, 1, 57), policy=direct_real, tangent=euclidean.
+aSR: gamma+ = 0.113194, gamma- = -2.081667.
+aSR: selected gamma+ = 0.113194 (smaller-|gamma|, reference-connected root).
+aSR: selected root is in the steepest-descent direction.
+aSR: final gamma = 0.113194.
+Optimizer diagnostics:
+  Coordinates: real=81, storage=81, active=81, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=1.591362e-03, max=1.956388e+01], active[min=1.591362e-03, max=1.956388e+01].
+  SR solve: regime=wide, method=CG, iterations=80, residual=6.084759e-09, tolerance=1.000000e-08, converged=True.
+  SR direction: ||q_SR||=3.393474e+00, max|q_SR|=1.420658e+00.
+  Top 5 coordinates by generalized-force signal-to-noise:
+    j3_poly_alpha[q8]: force=-7.899033e+00 +- 8.500235e-02, signal-to-noise=9.292723e+01, metric_diag=1.956388e+01.
+    j3_poly_alpha[q9]: force=-2.880693e+00 +- 4.247171e-02, signal-to-noise=6.782617e+01, metric_diag=7.133856e+00.
+    j3_poly_alpha[q1]: force=-1.456316e+00 +- 3.249529e-02, signal-to-noise=4.481621e+01, metric_diag=3.637435e+00.
+    j3_poly_alpha[q0]: force=-1.842406e+00 +- 4.222112e-02, signal-to-noise=4.363708e+01, metric_diag=4.751610e+00.
+    j3_poly_alpha[q2]: force=-1.323468e+00 +- 3.197746e-02, signal-to-noise=4.138751e+01, metric_diag=4.005354e+00.
+  aSR decision: scale=1.131935e-01, model_fallback=False.
+  Change in linearized ln|Psi| norm = 3.497812e-02.
+  Final real-coordinate update: ||delta_q||=5.761788e-02, max|delta_q|=2.412140e-02.
+  [optimizer block] j3_poly_alpha: ||force||=9.233350e+00, max|force|=7.899033e+00, max(S/N)=9.292723e+01, metric_diag[min=3.637435e+00, max=1.956388e+01].
+    update: ||delta_q||=1.494696e-02, max|delta_q|=1.004187e-02, ||delta_p||=1.494696e-02, max|delta_p|=1.004187e-02.
+  [optimizer block] j3_poly_beta: ||force||=9.484319e-01, max|force|=6.631627e-01, max(S/N)=1.192755e+01, metric_diag[min=4.356316e+00, max=1.398058e+01].
+    update: ||delta_q||=6.799859e-03, max|delta_q|=4.658365e-03, ||delta_p||=6.799859e-03, max|delta_p|=4.658365e-03.
+  [optimizer block] j3_poly_gamma: ||force||=1.400377e+00, max|force|=4.667171e-01, max(S/N)=1.870199e+01, metric_diag[min=1.591362e-03, max=3.880758e+00].
+    update: ||delta_q||=5.522835e-02, max|delta_q|=2.412140e-02, ||delta_p||=5.522835e-02, max|delta_p|=2.412140e-02.
+------------------------------------------------------------------
+Max generalized force = -7.899 +- 0.085 Ha/a.u.
+Max generalized force signal-to-noise = 92.927.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 81.
+np.count_nonzero(theta) = 81.
+max. and min. of |theta| are 0.024121400343423336 and 2.910687077369608e-06.
+  [aSR update] - block=j3_poly_alpha size=16  ||delta_p||=1.495e-02  max|delta_p|=1.004e-02  max|applied update|=1.004e-02
+  [aSR update] - block=j3_poly_beta size=8  ||delta_p||=6.800e-03  max|delta_p|=4.658e-03  max|applied update|=4.658e-03
+  [aSR update] - block=j3_poly_gamma size=57  ||delta_p||=5.523e-02  max|delta_p|=2.412e-02  max|applied update|=2.412e-02
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_1.h5.
+
+==================================================================
+Optimization step = 2/4.
+==================================================================
+Sampling steps this iteration = 100.
+Warmup steps = 30.
+Bin blocks = 10.
+
+external_control_mcmc.toml is generated. 
+
+Skipping compilation (JAX cache is warm from previous run).
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.43 GB
+Start MCMC
+  Progress: MCMC step = 0/100: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/100: 1.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 2/100: 2.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 3/100: 3.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 4/100: 4.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 5/100: 5.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 6/100: 6.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 7/100: 7.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 8/100: 8.0 %. Elapsed time = 0.5 sec.
+  Progress: MCMC step = 9/100: 9.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 10/100: 10.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 11/100: 11.0 %. Elapsed time = 0.7 sec.
+  Progress: MCMC step = 12/100: 12.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 13/100: 13.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 14/100: 14.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 15/100: 15.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 16/100: 16.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 17/100: 17.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 18/100: 18.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 19/100: 19.0 %. Elapsed time = 1.2 sec.
+  Progress: MCMC step = 20/100: 20.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 21/100: 21.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 22/100: 22.0 %. Elapsed time = 1.4 sec.
+  Progress: MCMC step = 23/100: 23.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 24/100: 24.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 25/100: 25.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 26/100: 26.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 27/100: 27.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 28/100: 28.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 29/100: 29.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 30/100: 30.0 %. Elapsed time = 1.9 sec.
+  Progress: MCMC step = 31/100: 31.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 32/100: 32.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 33/100: 33.0 %. Elapsed time = 2.1 sec.
+  Progress: MCMC step = 34/100: 34.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 35/100: 35.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 36/100: 36.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 37/100: 37.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 38/100: 38.0 %. Elapsed time = 2.4 sec.
+  Progress: MCMC step = 39/100: 39.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 40/100: 40.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 41/100: 41.0 %. Elapsed time = 2.6 sec.
+  Progress: MCMC step = 42/100: 42.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 43/100: 43.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 44/100: 44.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 45/100: 45.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 46/100: 46.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 47/100: 47.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 48/100: 48.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 49/100: 49.0 %. Elapsed time = 3.1 sec.
+  Progress: MCMC step = 50/100: 50.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 51/100: 51.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 52/100: 52.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 53/100: 53.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 54/100: 54.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 55/100: 55.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 56/100: 56.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 57/100: 57.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 58/100: 58.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 59/100: 59.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 60/100: 60.0 %. Elapsed time = 3.8 sec.
+  Progress: MCMC step = 61/100: 61.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 62/100: 62.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 63/100: 63.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 64/100: 64.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 65/100: 65.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 66/100: 66.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 67/100: 67.0 %. Elapsed time = 4.3 sec.
+  Progress: MCMC step = 68/100: 68.0 %. Elapsed time = 4.3 sec.
+  Progress: MCMC step = 69/100: 69.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 70/100: 70.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 71/100: 71.0 %. Elapsed time = 4.5 sec.
+  Progress: MCMC step = 72/100: 72.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 73/100: 73.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 74/100: 74.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 75/100: 75.0 %. Elapsed time = 4.8 sec.
+  Progress: MCMC step = 76/100: 76.0 %. Elapsed time = 4.8 sec.
+  Progress: MCMC step = 77/100: 77.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 78/100: 78.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 79/100: 79.0 %. Elapsed time = 5.0 sec.
+  Progress: MCMC step = 80/100: 80.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 81/100: 81.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 82/100: 82.0 %. Elapsed time = 5.2 sec.
+  Progress: MCMC step = 83/100: 83.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 84/100: 84.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 85/100: 85.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 86/100: 86.0 %. Elapsed time = 5.5 sec.
+  Progress: MCMC step = 87/100: 87.0 %. Elapsed time = 5.5 sec.
+  Progress: MCMC step = 88/100: 88.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 89/100: 89.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 90/100: 90.0 %. Elapsed time = 5.7 sec.
+  Progress: MCMC step = 91/100: 91.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 92/100: 92.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 93/100: 93.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 94/100: 94.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 95/100: 95.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 96/100: 96.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 97/100: 97.0 %. Elapsed time = 6.2 sec.
+  Progress: MCMC step = 98/100: 98.0 %. Elapsed time = 6.2 sec.
+  Progress: MCMC step = 99/100: 99.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 100/100: 100.0 %. Elapsed time = 6.4 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 100 steps. = 6.54 sec.
+Pre-compilation time for MCMC = 0.00 sec.
+Net total time for MCMC = 6.54 sec.
+Elapsed times per MCMC step, averaged over 100 steps.
+  Time for MCMC update = 3.00 msec.
+  Time for computing e_L = 9.39 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 8.50 msec.
+  Time for computing de_L/dc = 38.14 msec.
+  Time for MPI barrier after MCMC update = 0.01 msec.
+  Time for misc. (others) = 6.39 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 69.04 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.44 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -7.07379 +- 0.00618 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 81.
+Optimization batch: route=host, local samples=280, sampler ranks=120, real coordinates=81, storage parameters=81.
+  Derivative source j3_poly_alpha: O shape=(280, 2, 8), D shape=(280, 2, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_beta: O shape=(280, 1, 8), D shape=(280, 1, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_gamma: O shape=(280, 1, 57), D shape=(280, 1, 57), policy=direct_real, tangent=euclidean.
+aSR: gamma+ = 0.130928, gamma- = -2.396663.
+aSR: selected gamma+ = 0.130928 (smaller-|gamma|, reference-connected root).
+aSR: selected root is in the steepest-descent direction.
+aSR: final gamma = 0.130928.
+Optimizer diagnostics:
+  Coordinates: real=81, storage=81, active=81, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=1.364956e-03, max=1.868547e+01], active[min=1.364956e-03, max=1.868547e+01].
+  SR solve: regime=wide, method=CG, iterations=74, residual=3.889717e-09, tolerance=1.000000e-08, converged=True.
+  SR direction: ||q_SR||=3.504200e+00, max|q_SR|=1.913106e+00.
+  Top 5 coordinates by generalized-force signal-to-noise:
+    j3_poly_alpha[q8]: force=-6.747573e+00 +- 7.575421e-02, signal-to-noise=8.907193e+01, metric_diag=1.868547e+01.
+    j3_poly_alpha[q9]: force=-2.761226e+00 +- 3.969507e-02, signal-to-noise=6.956093e+01, metric_diag=6.983205e+00.
+    j3_poly_alpha[q10]: force=-1.555582e+00 +- 3.396109e-02, signal-to-noise=4.580483e+01, metric_diag=6.351523e+00.
+    j3_poly_alpha[q0]: force=-1.583933e+00 +- 3.470351e-02, signal-to-noise=4.564185e+01, metric_diag=4.577387e+00.
+    j3_poly_alpha[q1]: force=-1.309245e+00 +- 2.900152e-02, signal-to-noise=4.514400e+01, metric_diag=3.521164e+00.
+  aSR decision: scale=1.309278e-01, model_fallback=False.
+  Change in linearized ln|Psi| norm = 3.505933e-02.
+  Final real-coordinate update: ||delta_q||=6.881956e-02, max|delta_q|=3.757181e-02.
+  [optimizer block] j3_poly_alpha: ||force||=8.109990e+00, max|force|=6.747573e+00, max(S/N)=8.907193e+01, metric_diag[min=3.521164e+00, max=1.868547e+01].
+    update: ||delta_q||=1.157394e-02, max|delta_q|=8.905813e-03, ||delta_p||=1.157394e-02, max|delta_p|=8.905813e-03.
+  [optimizer block] j3_poly_beta: ||force||=8.867744e-01, max|force|=6.171756e-01, max(S/N)=1.312556e+01, metric_diag[min=4.342676e+00, max=1.390973e+01].
+    update: ||delta_q||=8.584373e-03, max|delta_q|=5.395614e-03, ||delta_p||=8.584373e-03, max|delta_p|=5.395614e-03.
+  [optimizer block] j3_poly_gamma: ||force||=1.112363e+00, max|force|=3.861939e-01, max(S/N)=1.708765e+01, metric_diag[min=1.364956e-03, max=3.675796e+00].
+    update: ||delta_q||=6.729401e-02, max|delta_q|=3.757181e-02, ||delta_p||=6.729401e-02, max|delta_p|=3.757181e-02.
+------------------------------------------------------------------
+Max generalized force = -6.748 +- 0.076 Ha/a.u.
+Max generalized force signal-to-noise = 89.072.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 81.
+np.count_nonzero(theta) = 81.
+max. and min. of |theta| are 0.03757181144827175 and 2.436583183536222e-05.
+  [aSR update] - block=j3_poly_alpha size=16  ||delta_p||=1.157e-02  max|delta_p|=8.906e-03  max|applied update|=8.906e-03
+  [aSR update] - block=j3_poly_beta size=8  ||delta_p||=8.584e-03  max|delta_p|=5.396e-03  max|applied update|=5.396e-03
+  [aSR update] - block=j3_poly_gamma size=57  ||delta_p||=6.729e-02  max|delta_p|=3.757e-02  max|applied update|=3.757e-02
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_2.h5.
+
+==================================================================
+Optimization step = 3/4.
+==================================================================
+Sampling steps this iteration = 100.
+Warmup steps = 30.
+Bin blocks = 10.
+
+external_control_mcmc.toml is generated. 
+
+Skipping compilation (JAX cache is warm from previous run).
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.44 GB
+Start MCMC
+  Progress: MCMC step = 0/100: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/100: 1.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 2/100: 2.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 3/100: 3.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 4/100: 4.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 5/100: 5.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 6/100: 6.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 7/100: 7.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 8/100: 8.0 %. Elapsed time = 0.5 sec.
+  Progress: MCMC step = 9/100: 9.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 10/100: 10.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 11/100: 11.0 %. Elapsed time = 0.7 sec.
+  Progress: MCMC step = 12/100: 12.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 13/100: 13.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 14/100: 14.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 15/100: 15.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 16/100: 16.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 17/100: 17.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 18/100: 18.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 19/100: 19.0 %. Elapsed time = 1.2 sec.
+  Progress: MCMC step = 20/100: 20.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 21/100: 21.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 22/100: 22.0 %. Elapsed time = 1.4 sec.
+  Progress: MCMC step = 23/100: 23.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 24/100: 24.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 25/100: 25.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 26/100: 26.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 27/100: 27.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 28/100: 28.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 29/100: 29.0 %. Elapsed time = 1.9 sec.
+  Progress: MCMC step = 30/100: 30.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 31/100: 31.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 32/100: 32.0 %. Elapsed time = 2.1 sec.
+  Progress: MCMC step = 33/100: 33.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 34/100: 34.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 35/100: 35.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 36/100: 36.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 37/100: 37.0 %. Elapsed time = 2.4 sec.
+  Progress: MCMC step = 38/100: 38.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 39/100: 39.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 40/100: 40.0 %. Elapsed time = 2.6 sec.
+  Progress: MCMC step = 41/100: 41.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 42/100: 42.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 43/100: 43.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 44/100: 44.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 45/100: 45.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 46/100: 46.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 47/100: 47.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 48/100: 48.0 %. Elapsed time = 3.1 sec.
+  Progress: MCMC step = 49/100: 49.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 50/100: 50.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 51/100: 51.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 52/100: 52.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 53/100: 53.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 54/100: 54.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 55/100: 55.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 56/100: 56.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 57/100: 57.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 58/100: 58.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 59/100: 59.0 %. Elapsed time = 3.8 sec.
+  Progress: MCMC step = 60/100: 60.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 61/100: 61.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 62/100: 62.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 63/100: 63.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 64/100: 64.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 65/100: 65.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 66/100: 66.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 67/100: 67.0 %. Elapsed time = 4.3 sec.
+  Progress: MCMC step = 68/100: 68.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 69/100: 69.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 70/100: 70.0 %. Elapsed time = 4.5 sec.
+  Progress: MCMC step = 71/100: 71.0 %. Elapsed time = 4.5 sec.
+  Progress: MCMC step = 72/100: 72.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 73/100: 73.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 74/100: 74.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 75/100: 75.0 %. Elapsed time = 4.8 sec.
+  Progress: MCMC step = 76/100: 76.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 77/100: 77.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 78/100: 78.0 %. Elapsed time = 5.0 sec.
+  Progress: MCMC step = 79/100: 79.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 80/100: 80.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 81/100: 81.0 %. Elapsed time = 5.2 sec.
+  Progress: MCMC step = 82/100: 82.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 83/100: 83.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 84/100: 84.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 85/100: 85.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 86/100: 86.0 %. Elapsed time = 5.5 sec.
+  Progress: MCMC step = 87/100: 87.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 88/100: 88.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 89/100: 89.0 %. Elapsed time = 5.7 sec.
+  Progress: MCMC step = 90/100: 90.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 91/100: 91.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 92/100: 92.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 93/100: 93.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 94/100: 94.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 95/100: 95.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 96/100: 96.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 97/100: 97.0 %. Elapsed time = 6.2 sec.
+  Progress: MCMC step = 98/100: 98.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 99/100: 99.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 100/100: 100.0 %. Elapsed time = 6.4 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 100 steps. = 6.58 sec.
+Pre-compilation time for MCMC = 0.00 sec.
+Net total time for MCMC = 6.58 sec.
+Elapsed times per MCMC step, averaged over 100 steps.
+  Time for MCMC update = 3.01 msec.
+  Time for computing e_L = 9.39 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 8.53 msec.
+  Time for computing de_L/dc = 38.15 msec.
+  Time for MPI barrier after MCMC update = 0.03 msec.
+  Time for misc. (others) = 6.65 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 69.03 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.44 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -7.13748 +- 0.00545 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 81.
+Optimization batch: route=host, local samples=280, sampler ranks=120, real coordinates=81, storage parameters=81.
+  Derivative source j3_poly_alpha: O shape=(280, 2, 8), D shape=(280, 2, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_beta: O shape=(280, 1, 8), D shape=(280, 1, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_gamma: O shape=(280, 1, 57), D shape=(280, 1, 57), policy=direct_real, tangent=euclidean.
+aSR: gamma+ = 0.144503, gamma- = -2.908657.
+aSR: selected gamma+ = 0.144503 (smaller-|gamma|, reference-connected root).
+aSR: selected root is in the steepest-descent direction.
+aSR: final gamma = 0.144503.
+Optimizer diagnostics:
+  Coordinates: real=81, storage=81, active=81, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=1.248328e-03, max=1.788608e+01], active[min=1.248328e-03, max=1.788608e+01].
+  SR solve: regime=wide, method=CG, iterations=72, residual=4.609462e-09, tolerance=1.000000e-08, converged=True.
+  SR direction: ||q_SR||=8.658386e+00, max|q_SR|=7.692726e+00.
+  Top 5 coordinates by generalized-force signal-to-noise:
+    j3_poly_alpha[q8]: force=-5.696578e+00 +- 6.119650e-02, signal-to-noise=9.308666e+01, metric_diag=1.788608e+01.
+    j3_poly_alpha[q9]: force=-2.552009e+00 +- 3.369231e-02, signal-to-noise=7.574453e+01, metric_diag=6.906376e+00.
+    j3_poly_alpha[q10]: force=-1.544444e+00 +- 2.984238e-02, signal-to-noise=5.175337e+01, metric_diag=6.356637e+00.
+    j3_poly_alpha[q1]: force=-1.103804e+00 +- 2.447036e-02, signal-to-noise=4.510778e+01, metric_diag=3.459554e+00.
+    j3_poly_alpha[q0]: force=-1.282335e+00 +- 2.908962e-02, signal-to-noise=4.408221e+01, metric_diag=4.377235e+00.
+  aSR decision: scale=1.445029e-01, model_fallback=False.
+  Change in linearized ln|Psi| norm = 3.343361e-02.
+  Final real-coordinate update: ||delta_q||=1.876743e-01, max|delta_q|=1.667432e-01.
+  [optimizer block] j3_poly_alpha: ||force||=7.012385e+00, max|force|=5.696578e+00, max(S/N)=9.308666e+01, metric_diag[min=3.459554e+00, max=1.788608e+01].
+    update: ||delta_q||=1.024636e-02, max|delta_q|=7.739180e-03, ||delta_p||=1.024636e-02, max|delta_p|=7.739180e-03.
+  [optimizer block] j3_poly_beta: ||force||=6.808167e-01, max|force|=4.708925e-01, max(S/N)=1.179609e+01, metric_diag[min=4.257844e+00, max=1.357247e+01].
+    update: ||delta_q||=9.245994e-03, max|delta_q|=5.663722e-03, ||delta_p||=9.245994e-03, max|delta_p|=5.663722e-03.
+  [optimizer block] j3_poly_gamma: ||force||=8.553932e-01, max|force|=3.005643e-01, max(S/N)=1.770177e+01, metric_diag[min=1.248328e-03, max=3.557814e+00].
+    update: ||delta_q||=1.871661e-01, max|delta_q|=1.667432e-01, ||delta_p||=1.871661e-01, max|delta_p|=1.667432e-01.
+------------------------------------------------------------------
+Max generalized force = -5.697 +- 0.061 Ha/a.u.
+Max generalized force signal-to-noise = 93.087.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 81.
+np.count_nonzero(theta) = 81.
+max. and min. of |theta| are 0.16674319911872315 and 3.8012738116366084e-05.
+  [aSR update] - block=j3_poly_alpha size=16  ||delta_p||=1.025e-02  max|delta_p|=7.739e-03  max|applied update|=7.739e-03
+  [aSR update] - block=j3_poly_beta size=8  ||delta_p||=9.246e-03  max|delta_p|=5.664e-03  max|applied update|=5.664e-03
+  [aSR update] - block=j3_poly_gamma size=57  ||delta_p||=1.872e-01  max|delta_p|=1.667e-01  max|applied update|=1.667e-01
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_3.h5.
+
+==================================================================
+Optimization step = 4/4.
+==================================================================
+Sampling steps this iteration = 100.
+Warmup steps = 30.
+Bin blocks = 10.
+
+external_control_mcmc.toml is generated. 
+
+Skipping compilation (JAX cache is warm from previous run).
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.44 GB
+Start MCMC
+  Progress: MCMC step = 0/100: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/100: 1.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 2/100: 2.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 3/100: 3.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 4/100: 4.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 5/100: 5.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 6/100: 6.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 7/100: 7.0 %. Elapsed time = 0.4 sec.
+  Progress: MCMC step = 8/100: 8.0 %. Elapsed time = 0.5 sec.
+  Progress: MCMC step = 9/100: 9.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 10/100: 10.0 %. Elapsed time = 0.6 sec.
+  Progress: MCMC step = 11/100: 11.0 %. Elapsed time = 0.7 sec.
+  Progress: MCMC step = 12/100: 12.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 13/100: 13.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 14/100: 14.0 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 15/100: 15.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 16/100: 16.0 %. Elapsed time = 1.0 sec.
+  Progress: MCMC step = 17/100: 17.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 18/100: 18.0 %. Elapsed time = 1.1 sec.
+  Progress: MCMC step = 19/100: 19.0 %. Elapsed time = 1.2 sec.
+  Progress: MCMC step = 20/100: 20.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 21/100: 21.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 22/100: 22.0 %. Elapsed time = 1.4 sec.
+  Progress: MCMC step = 23/100: 23.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 24/100: 24.0 %. Elapsed time = 1.5 sec.
+  Progress: MCMC step = 25/100: 25.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 26/100: 26.0 %. Elapsed time = 1.6 sec.
+  Progress: MCMC step = 27/100: 27.0 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 28/100: 28.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 29/100: 29.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 30/100: 30.0 %. Elapsed time = 1.9 sec.
+  Progress: MCMC step = 31/100: 31.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 32/100: 32.0 %. Elapsed time = 2.0 sec.
+  Progress: MCMC step = 33/100: 33.0 %. Elapsed time = 2.1 sec.
+  Progress: MCMC step = 34/100: 34.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 35/100: 35.0 %. Elapsed time = 2.2 sec.
+  Progress: MCMC step = 36/100: 36.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 37/100: 37.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 38/100: 38.0 %. Elapsed time = 2.4 sec.
+  Progress: MCMC step = 39/100: 39.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 40/100: 40.0 %. Elapsed time = 2.5 sec.
+  Progress: MCMC step = 41/100: 41.0 %. Elapsed time = 2.6 sec.
+  Progress: MCMC step = 42/100: 42.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 43/100: 43.0 %. Elapsed time = 2.7 sec.
+  Progress: MCMC step = 44/100: 44.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 45/100: 45.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 46/100: 46.0 %. Elapsed time = 2.9 sec.
+  Progress: MCMC step = 47/100: 47.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 48/100: 48.0 %. Elapsed time = 3.0 sec.
+  Progress: MCMC step = 49/100: 49.0 %. Elapsed time = 3.1 sec.
+  Progress: MCMC step = 50/100: 50.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 51/100: 51.0 %. Elapsed time = 3.2 sec.
+  Progress: MCMC step = 52/100: 52.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 53/100: 53.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 54/100: 54.0 %. Elapsed time = 3.4 sec.
+  Progress: MCMC step = 55/100: 55.0 %. Elapsed time = 3.5 sec.
+  Progress: MCMC step = 56/100: 56.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 57/100: 57.0 %. Elapsed time = 3.6 sec.
+  Progress: MCMC step = 58/100: 58.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 59/100: 59.0 %. Elapsed time = 3.7 sec.
+  Progress: MCMC step = 60/100: 60.0 %. Elapsed time = 3.8 sec.
+  Progress: MCMC step = 61/100: 61.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 62/100: 62.0 %. Elapsed time = 3.9 sec.
+  Progress: MCMC step = 63/100: 63.0 %. Elapsed time = 4.0 sec.
+  Progress: MCMC step = 64/100: 64.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 65/100: 65.0 %. Elapsed time = 4.1 sec.
+  Progress: MCMC step = 66/100: 66.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 67/100: 67.0 %. Elapsed time = 4.2 sec.
+  Progress: MCMC step = 68/100: 68.0 %. Elapsed time = 4.3 sec.
+  Progress: MCMC step = 69/100: 69.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 70/100: 70.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 71/100: 71.0 %. Elapsed time = 4.5 sec.
+  Progress: MCMC step = 72/100: 72.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 73/100: 73.0 %. Elapsed time = 4.6 sec.
+  Progress: MCMC step = 74/100: 74.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 75/100: 75.0 %. Elapsed time = 4.7 sec.
+  Progress: MCMC step = 76/100: 76.0 %. Elapsed time = 4.8 sec.
+  Progress: MCMC step = 77/100: 77.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 78/100: 78.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 79/100: 79.0 %. Elapsed time = 5.0 sec.
+  Progress: MCMC step = 80/100: 80.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 81/100: 81.0 %. Elapsed time = 5.1 sec.
+  Progress: MCMC step = 82/100: 82.0 %. Elapsed time = 5.2 sec.
+  Progress: MCMC step = 83/100: 83.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 84/100: 84.0 %. Elapsed time = 5.3 sec.
+  Progress: MCMC step = 85/100: 85.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 86/100: 86.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 87/100: 87.0 %. Elapsed time = 5.5 sec.
+  Progress: MCMC step = 88/100: 88.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 89/100: 89.0 %. Elapsed time = 5.6 sec.
+  Progress: MCMC step = 90/100: 90.0 %. Elapsed time = 5.7 sec.
+  Progress: MCMC step = 91/100: 91.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 92/100: 92.0 %. Elapsed time = 5.8 sec.
+  Progress: MCMC step = 93/100: 93.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 94/100: 94.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 95/100: 95.0 %. Elapsed time = 6.0 sec.
+  Progress: MCMC step = 96/100: 96.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 97/100: 97.0 %. Elapsed time = 6.1 sec.
+  Progress: MCMC step = 98/100: 98.0 %. Elapsed time = 6.2 sec.
+  Progress: MCMC step = 99/100: 99.0 %. Elapsed time = 6.3 sec.
+  Progress: MCMC step = 100/100: 100.0 %. Elapsed time = 6.3 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 100 steps. = 6.49 sec.
+Pre-compilation time for MCMC = 0.00 sec.
+Net total time for MCMC = 6.49 sec.
+Elapsed times per MCMC step, averaged over 100 steps.
+  Time for MCMC update = 3.01 msec.
+  Time for computing e_L = 9.40 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 8.51 msec.
+  Time for computing de_L/dc = 38.11 msec.
+  Time for MPI barrier after MCMC update = 0.02 msec.
+  Time for misc. (others) = 5.89 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 68.99 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.44 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -7.18842 +- 0.00471 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 81.
+Optimization batch: route=host, local samples=280, sampler ranks=120, real coordinates=81, storage parameters=81.
+  Derivative source j3_poly_alpha: O shape=(280, 2, 8), D shape=(280, 2, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_beta: O shape=(280, 1, 8), D shape=(280, 1, 8), policy=direct_real, tangent=euclidean.
+  Derivative source j3_poly_gamma: O shape=(280, 1, 57), D shape=(280, 1, 57), policy=direct_real, tangent=euclidean.
+aSR: gamma+ = 0.157189, gamma- = -3.662974.
+aSR: selected gamma+ = 0.157189 (smaller-|gamma|, reference-connected root).
+aSR: selected root is in the steepest-descent direction.
+aSR: final gamma = 0.157189.
+Optimizer diagnostics:
+  Coordinates: real=81, storage=81, active=81, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=1.246454e-03, max=1.698064e+01], active[min=1.246454e-03, max=1.698064e+01].
+  SR solve: regime=wide, method=CG, iterations=74, residual=8.328178e-09, tolerance=1.000000e-08, converged=True.
+  SR direction: ||q_SR||=5.299277e+00, max|q_SR|=3.440480e+00.
+  Top 5 coordinates by generalized-force signal-to-noise:
+    j3_poly_alpha[q8]: force=-4.727854e+00 +- 5.118407e-02, signal-to-noise=9.236964e+01, metric_diag=1.698064e+01.
+    j3_poly_alpha[q9]: force=-2.294062e+00 +- 2.903739e-02, signal-to-noise=7.900374e+01, metric_diag=6.672551e+00.
+    j3_poly_alpha[q10]: force=-1.488742e+00 +- 2.520320e-02, signal-to-noise=5.906957e+01, metric_diag=6.110902e+00.
+    j3_poly_alpha[q1]: force=-8.940760e-01 +- 1.962850e-02, signal-to-noise=4.554988e+01, metric_diag=3.308689e+00.
+    j3_poly_alpha[q0]: force=-1.029666e+00 +- 2.335232e-02, signal-to-noise=4.409267e+01, metric_diag=4.210459e+00.
+  aSR decision: scale=1.571888e-01, model_fallback=False.
+  Change in linearized ln|Psi| norm = 3.107315e-02.
+  Final real-coordinate update: ||delta_q||=1.249481e-01, max|delta_q|=8.112075e-02.
+  [optimizer block] j3_poly_alpha: ||force||=5.945200e+00, max|force|=4.727854e+00, max(S/N)=9.236964e+01, metric_diag[min=3.308689e+00, max=1.698064e+01].
+    update: ||delta_q||=9.389116e-03, max|delta_q|=6.878067e-03, ||delta_p||=9.389116e-03, max|delta_p|=6.878067e-03.
+  [optimizer block] j3_poly_beta: ||force||=5.525784e-01, max|force|=3.914274e-01, max(S/N)=1.189561e+01, metric_diag[min=4.196949e+00, max=1.338773e+01].
+    update: ||delta_q||=9.899745e-03, max|delta_q|=6.003096e-03, ||delta_p||=9.899745e-03, max|delta_p|=6.003096e-03.
+  [optimizer block] j3_poly_gamma: ||force||=6.406940e-01, max|force|=2.283187e-01, max(S/N)=1.790409e+01, metric_diag[min=1.246454e-03, max=3.461035e+00].
+    update: ||delta_q||=1.242009e-01, max|delta_q|=8.112075e-02, ||delta_p||=1.242009e-01, max|delta_p|=8.112075e-02.
+------------------------------------------------------------------
+Max generalized force = -4.728 +- 0.051 Ha/a.u.
+Max generalized force signal-to-noise = 92.370.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 81.
+np.count_nonzero(theta) = 81.
+max. and min. of |theta| are 0.08112075115072748 and 4.044256649989783e-06.
+  [aSR update] - block=j3_poly_alpha size=16  ||delta_p||=9.389e-03  max|delta_p|=6.878e-03  max|applied update|=6.878e-03
+  [aSR update] - block=j3_poly_beta size=8  ||delta_p||=9.900e-03  max|delta_p|=6.003e-03  max|applied update|=6.003e-03
+  [aSR update] - block=j3_poly_gamma size=57  ||delta_p||=1.242e-01  max|delta_p|=8.112e-02  max|applied update|=8.112e-02
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_4.h5.
+
+Total elapsed time for optimization 4 steps. = 32.82 sec.
+Elapsed times per optimization step, averaged over 4 steps.
+  Time for sampling = 8.16 sec.
+  Time for computing E = 0.00 sec.
+  Time for computing generalized forces (gF) = 0.00 sec.
+  Time for optimizer (SR) = 0.03 sec.
+  Time for parameter update = 0.00 sec.
+  Time for MPI barrier = 0.00 sec.
+  Time for misc. (others) = 0.00 sec.
+
+Delete external_control_opt.toml
+[memory] stage=optimize_post_loop, RSS_peak_max=0.45 GB
+
+Dump restart checkpoint file(s) to restart.h5.
+
+Program ends 2026-10-29 20:03:52

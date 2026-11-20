@@ -1,0 +1,463 @@
+Program starts 2026-10-29 18:15:48
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048), CpuDevice(id=4096), CpuDevice(id=6144), CpuDevice(id=8192), CpuDevice(id=10240), CpuDevice(id=12288), CpuDevice(id=14336), CpuDevice(id=16384), CpuDevice(id=18432), CpuDevice(id=20480), CpuDevice(id=22528), CpuDevice(id=24576), CpuDevice(id=26624), CpuDevice(id=28672), CpuDevice(id=30720), CpuDevice(id=32768), CpuDevice(id=34816), CpuDevice(id=36864), CpuDevice(id=38912), CpuDevice(id=40960), CpuDevice(id=43008), CpuDevice(id=45056), CpuDevice(id=47104), CpuDevice(id=49152), CpuDevice(id=51200), CpuDevice(id=53248), CpuDevice(id=55296), CpuDevice(id=57344), CpuDevice(id=59392), CpuDevice(id=61440), CpuDevice(id=63488), CpuDevice(id=65536), CpuDevice(id=67584), CpuDevice(id=69632), CpuDevice(id=71680), CpuDevice(id=73728), CpuDevice(id=75776), CpuDevice(id=77824), CpuDevice(id=79872), CpuDevice(id=81920), CpuDevice(id=83968), CpuDevice(id=86016), CpuDevice(id=88064), CpuDevice(id=90112), CpuDevice(id=92160), CpuDevice(id=94208), CpuDevice(id=96256), CpuDevice(id=98304), CpuDevice(id=100352), CpuDevice(id=102400), CpuDevice(id=104448), CpuDevice(id=106496), CpuDevice(id=108544), CpuDevice(id=110592), CpuDevice(id=112640), CpuDevice(id=114688), CpuDevice(id=116736), CpuDevice(id=118784), CpuDevice(id=120832), CpuDevice(id=122880), CpuDevice(id=124928), CpuDevice(id=126976), CpuDevice(id=129024), CpuDevice(id=131072), CpuDevice(id=133120), CpuDevice(id=135168), CpuDevice(id=137216), CpuDevice(id=139264), CpuDevice(id=141312), CpuDevice(id=143360), CpuDevice(id=145408), CpuDevice(id=147456), CpuDevice(id=149504), CpuDevice(id=151552), CpuDevice(id=153600), CpuDevice(id=155648), CpuDevice(id=157696), CpuDevice(id=159744), CpuDevice(id=161792), CpuDevice(id=163840), CpuDevice(id=165888), CpuDevice(id=167936), CpuDevice(id=169984), CpuDevice(id=172032), CpuDevice(id=174080), CpuDevice(id=176128), CpuDevice(id=178176), CpuDevice(id=180224), CpuDevice(id=182272), CpuDevice(id=184320), CpuDevice(id=186368), CpuDevice(id=188416), CpuDevice(id=190464), CpuDevice(id=192512), CpuDevice(id=194560), CpuDevice(id=196608), CpuDevice(id=198656), CpuDevice(id=200704), CpuDevice(id=202752), CpuDevice(id=204800), CpuDevice(id=206848), CpuDevice(id=208896), CpuDevice(id=210944), CpuDevice(id=212992), CpuDevice(id=215040), CpuDevice(id=217088), CpuDevice(id=219136), CpuDevice(id=221184), CpuDevice(id=223232), CpuDevice(id=225280), CpuDevice(id=227328), CpuDevice(id=229376), CpuDevice(id=231424), CpuDevice(id=233472), CpuDevice(id=235520), CpuDevice(id=237568), CpuDevice(id=239616), CpuDevice(id=241664), CpuDevice(id=243712)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]', 'Rank 2: [CpuDevice(id=4096)]', 'Rank 3: [CpuDevice(id=6144)]', 'Rank 4: [CpuDevice(id=8192)]', 'Rank 5: [CpuDevice(id=10240)]', 'Rank 6: [CpuDevice(id=12288)]', 'Rank 7: [CpuDevice(id=14336)]', 'Rank 8: [CpuDevice(id=16384)]', 'Rank 9: [CpuDevice(id=18432)]', 'Rank 10: [CpuDevice(id=20480)]', 'Rank 11: [CpuDevice(id=22528)]', 'Rank 12: [CpuDevice(id=24576)]', 'Rank 13: [CpuDevice(id=26624)]', 'Rank 14: [CpuDevice(id=28672)]', 'Rank 15: [CpuDevice(id=30720)]', 'Rank 16: [CpuDevice(id=32768)]', 'Rank 17: [CpuDevice(id=34816)]', 'Rank 18: [CpuDevice(id=36864)]', 'Rank 19: [CpuDevice(id=38912)]', 'Rank 20: [CpuDevice(id=40960)]', 'Rank 21: [CpuDevice(id=43008)]', 'Rank 22: [CpuDevice(id=45056)]', 'Rank 23: [CpuDevice(id=47104)]', 'Rank 24: [CpuDevice(id=49152)]', 'Rank 25: [CpuDevice(id=51200)]', 'Rank 26: [CpuDevice(id=53248)]', 'Rank 27: [CpuDevice(id=55296)]', 'Rank 28: [CpuDevice(id=57344)]', 'Rank 29: [CpuDevice(id=59392)]', 'Rank 30: [CpuDevice(id=61440)]', 'Rank 31: [CpuDevice(id=63488)]', 'Rank 32: [CpuDevice(id=65536)]', 'Rank 33: [CpuDevice(id=67584)]', 'Rank 34: [CpuDevice(id=69632)]', 'Rank 35: [CpuDevice(id=71680)]', 'Rank 36: [CpuDevice(id=73728)]', 'Rank 37: [CpuDevice(id=75776)]', 'Rank 38: [CpuDevice(id=77824)]', 'Rank 39: [CpuDevice(id=79872)]', 'Rank 40: [CpuDevice(id=81920)]', 'Rank 41: [CpuDevice(id=83968)]', 'Rank 42: [CpuDevice(id=86016)]', 'Rank 43: [CpuDevice(id=88064)]', 'Rank 44: [CpuDevice(id=90112)]', 'Rank 45: [CpuDevice(id=92160)]', 'Rank 46: [CpuDevice(id=94208)]', 'Rank 47: [CpuDevice(id=96256)]', 'Rank 48: [CpuDevice(id=98304)]', 'Rank 49: [CpuDevice(id=100352)]', 'Rank 50: [CpuDevice(id=102400)]', 'Rank 51: [CpuDevice(id=104448)]', 'Rank 52: [CpuDevice(id=106496)]', 'Rank 53: [CpuDevice(id=108544)]', 'Rank 54: [CpuDevice(id=110592)]', 'Rank 55: [CpuDevice(id=112640)]', 'Rank 56: [CpuDevice(id=114688)]', 'Rank 57: [CpuDevice(id=116736)]', 'Rank 58: [CpuDevice(id=118784)]', 'Rank 59: [CpuDevice(id=120832)]', 'Rank 60: [CpuDevice(id=122880)]', 'Rank 61: [CpuDevice(id=124928)]', 'Rank 62: [CpuDevice(id=126976)]', 'Rank 63: [CpuDevice(id=129024)]', 'Rank 64: [CpuDevice(id=131072)]', 'Rank 65: [CpuDevice(id=133120)]', 'Rank 66: [CpuDevice(id=135168)]', 'Rank 67: [CpuDevice(id=137216)]', 'Rank 68: [CpuDevice(id=139264)]', 'Rank 69: [CpuDevice(id=141312)]', 'Rank 70: [CpuDevice(id=143360)]', 'Rank 71: [CpuDevice(id=145408)]', 'Rank 72: [CpuDevice(id=147456)]', 'Rank 73: [CpuDevice(id=149504)]', 'Rank 74: [CpuDevice(id=151552)]', 'Rank 75: [CpuDevice(id=153600)]', 'Rank 76: [CpuDevice(id=155648)]', 'Rank 77: [CpuDevice(id=157696)]', 'Rank 78: [CpuDevice(id=159744)]', 'Rank 79: [CpuDevice(id=161792)]', 'Rank 80: [CpuDevice(id=163840)]', 'Rank 81: [CpuDevice(id=165888)]', 'Rank 82: [CpuDevice(id=167936)]', 'Rank 83: [CpuDevice(id=169984)]', 'Rank 84: [CpuDevice(id=172032)]', 'Rank 85: [CpuDevice(id=174080)]', 'Rank 86: [CpuDevice(id=176128)]', 'Rank 87: [CpuDevice(id=178176)]', 'Rank 88: [CpuDevice(id=180224)]', 'Rank 89: [CpuDevice(id=182272)]', 'Rank 90: [CpuDevice(id=184320)]', 'Rank 91: [CpuDevice(id=186368)]', 'Rank 92: [CpuDevice(id=188416)]', 'Rank 93: [CpuDevice(id=190464)]', 'Rank 94: [CpuDevice(id=192512)]', 'Rank 95: [CpuDevice(id=194560)]', 'Rank 96: [CpuDevice(id=196608)]', 'Rank 97: [CpuDevice(id=198656)]', 'Rank 98: [CpuDevice(id=200704)]', 'Rank 99: [CpuDevice(id=202752)]', 'Rank 100: [CpuDevice(id=204800)]', 'Rank 101: [CpuDevice(id=206848)]', 'Rank 102: [CpuDevice(id=208896)]', 'Rank 103: [CpuDevice(id=210944)]', 'Rank 104: [CpuDevice(id=212992)]', 'Rank 105: [CpuDevice(id=215040)]', 'Rank 106: [CpuDevice(id=217088)]', 'Rank 107: [CpuDevice(id=219136)]', 'Rank 108: [CpuDevice(id=221184)]', 'Rank 109: [CpuDevice(id=223232)]', 'Rank 110: [CpuDevice(id=225280)]', 'Rank 111: [CpuDevice(id=227328)]', 'Rank 112: [CpuDevice(id=229376)]', 'Rank 113: [CpuDevice(id=231424)]', 'Rank 114: [CpuDevice(id=233472)]', 'Rank 115: [CpuDevice(id=235520)]', 'Rank 116: [CpuDevice(id=237568)]', 'Rank 117: [CpuDevice(id=239616)]', 'Rank 118: [CpuDevice(id=241664)]', 'Rank 119: [CpuDevice(id=243712)]']
+
+jax:    0.7.2
+jaxlib: 0.7.2
+numpy:  2.4.6
+python: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+device info: cpu-120, 1 local devices"
+process_count: 120
+platform: uname_result(system='Linux', node='test-host', release='test-release', version='test-version', machine='x86_64')
+XLA_FLAGS=--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1
+Input file = aiida.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=lrdmc-tau
+  verbosity=high
+  restart=False
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+  max_time=540
+
+**section:lrdmc-tau**
+  num_mcmc_steps=500
+  tau=0.1
+  alat=0.3
+  num_gfmc_warmup_steps=50
+  num_gfmc_bin_blocks=10
+  num_gfmc_collect_steps=10
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 1 (per MPI rank).
+
+The default value of mcmc_seed = 34456.
+The default value of number_of_walkers = 4.
+***Lattice Regularized diffusion Monte Carlo with a fixed projection time***
+The default value of non_local_move = tmove.
+The default value of atomic_force = False.
+The default value of compute_stress = False.
+The default value of use_swct = False.
+The default value of epsilon_PW = 0.0.
+
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+  initial r_up_carts= [[[ 0.17302046  0.14734135  0.45668881]]
+
+ [[ 0.15610496  0.60038109  0.8905837 ]]
+
+ [[-0.07044312  0.52141852  1.40771353]]
+
+ [[-0.73058909  0.3007828   0.75169596]]]
+  initial r_dn_carts = [[[-0.02188678  0.07358559 -1.22437896]]
+
+ [[-0.1274077  -0.15547091 -0.43896035]]
+
+ [[ 0.03271243  0.78763759 -1.23199296]]
+
+ [[-0.09804957  0.25060457 -0.52594733]]]
+  initial r_up_carts.shape = (4, 1, 3)
+  initial r_dn_carts.shape = (4, 1, 3)
+
+The number of MPI process = 120.
+The number of walkers assigned for each MPI process = 4.
+
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = False
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  H, H, 1.0, 0.00000000, 0.00000000, -0.66140414
+  H, H, 1.0, 0.00000000, 0.00000000, 0.66140414
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**SD_data
+  occupied MO rows (up, dn) = (1, 1)
+  num_electron_up = 1
+  num_electron_dn = 1
+  time_reversal = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**Jastrow_two_body_data
+  Jastrow 2b param = 1.0
+  2b Jastrow functional form is the pade type.
+**Jastrow_three_body_data
+  dim. of jastrow_3b_matrix = (1, 2)
+  j3 part of the jastrow_3b_matrix is symmetric? = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+==================================================================
+
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Full Precision (FP64)
+Zone detail:
+  ao_eval: float64
+  ao_grad_lap: float64
+  coulomb: float64
+  det_eval: float64
+  det_grad_lap: float64
+  det_ratio: float64
+  ewald: float64
+  jastrow_eval: float64
+  jastrow_grad_lap: float64
+  jastrow_ratio: float64
+  local_energy: float64
+  mo_eval: float64
+  mo_grad: float64
+  mo_lap: float64
+  swct: float64
+  wf_eval: float64
+  wf_kinetic: float64
+  wf_ratio: float64
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = False
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  H, H, 1.0, 0.00000000, 0.00000000, -0.66140414
+  H, H, 1.0, 0.00000000, 0.00000000, 0.66140414
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**SD_data
+  occupied MO rows (up, dn) = (1, 1)
+  num_electron_up = 1
+  num_electron_dn = 1
+  time_reversal = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**Jastrow_two_body_data
+  Jastrow 2b param = 1.0
+  2b Jastrow functional form is the pade type.
+**Jastrow_three_body_data
+  dim. of jastrow_3b_matrix = (1, 2)
+  j3 part of the jastrow_3b_matrix is symmetric? = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+==================================================================
+external_control_gfmc.toml is generated. 
+
+Native GFMC projection chunk ENGAGED (driver=t, pbc=False, want_force=False, want_stress=False).
+End compilation of the GFMC projection funciton.
+Elapsed Time = 0.16 sec.
+
+End compilation of the GFMC projection while_loop driver.
+Elapsed Time = 0.00 sec.
+
+[memory] stage=gfmc_t_post_warmup, RSS_peak_max=0.28 GB
+-Start branching-
+  branching step = 0/500: 0.0 %. Elapsed time = 0.0 sec.
+  branching step = 25/500: 5.0 %. Elapsed time = 0.1 sec.
+  branching step = 50/500: 10.0 %. Elapsed time = 0.2 sec.
+  branching step = 75/500: 15.0 %. Elapsed time = 0.2 sec.
+  branching step = 100/500: 20.0 %. Elapsed time = 0.3 sec.
+  branching step = 125/500: 25.0 %. Elapsed time = 0.3 sec.
+  branching step = 150/500: 30.0 %. Elapsed time = 0.3 sec.
+  branching step = 175/500: 35.0 %. Elapsed time = 0.4 sec.
+  branching step = 200/500: 40.0 %. Elapsed time = 0.4 sec.
+  branching step = 225/500: 45.0 %. Elapsed time = 0.5 sec.
+  branching step = 250/500: 50.0 %. Elapsed time = 0.5 sec.
+  branching step = 275/500: 55.0 %. Elapsed time = 0.6 sec.
+  branching step = 300/500: 60.0 %. Elapsed time = 0.6 sec.
+  branching step = 325/500: 65.0 %. Elapsed time = 0.6 sec.
+  branching step = 350/500: 70.0 %. Elapsed time = 0.7 sec.
+  branching step = 375/500: 75.0 %. Elapsed time = 0.7 sec.
+  branching step = 400/500: 80.0 %. Elapsed time = 0.8 sec.
+  branching step = 425/500: 85.0 %. Elapsed time = 0.8 sec.
+  branching step = 450/500: 90.0 %. Elapsed time = 0.8 sec.
+  branching step = 475/500: 95.0 %. Elapsed time = 0.9 sec.
+  branching step = 500/500: 100.0 %. Elapsed time = 0.9 sec.
+
+Delete external_control_gfmc.toml
+Total GFMC time for 500 branching steps =  1.384 sec.
+Pre-compilation time for GFMC =  0.162 sec.
+Net GFMC time without pre-compilations =  1.222 sec.
+Elapsed times per branching, averaged over 500 branching steps.
+  Projection time per branching =  0.537 msec.
+  Time for Observable measurement time per branching =  0.000 msec.
+  Time for MPI barrier before branching = 0.15 msec.
+  Time for walker observable collections time per branching =  0.327 msec.
+  Time for walker reconfiguration time per branching =  0.808 msec.
+  Time for misc. (others) = 0.62 msec.
+Survived walkers ratio = 99.17 %
+Average of the number of projections  = 8
+
+[memory] stage=gfmc_t_post_run, RSS_peak_max=0.30 GB
+Dump restart checkpoint file(s) to restart.h5.
+
+Final output(s):
+  Total Energy: E = -1.17305 +- 0.00133 Ha.
+  Variance: Var = 0.07224 +- 0.00047 Ha^2.
+
+Program ends 2026-10-29 18:15:56

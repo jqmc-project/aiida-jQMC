@@ -1,0 +1,533 @@
+Program starts 2026-11-18 11:16:13
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]']
+
+jax:    0.10.2
+jaxlib: 0.10.2
+numpy:  2.4.6
+python: 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]
+device info: cpu-2, 1 local devices"
+process_count: 2
+platform: Linux x86_64
+JAX_PLATFORMS=cpu
+XLA_FLAGS=--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=2
+Input file = input.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=vmc
+  number_of_walkers=4
+  mcmc_seed=1
+  verbosity=high
+  max_time=3600
+  restart=False
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+
+**section:vmc**
+  num_mcmc_steps=40
+  num_mcmc_warmup_steps=10
+  num_mcmc_bin_blocks=5
+  num_opt_steps=2
+  optimizer_kwargs={'method': 'sr', 'use_lm': False, 'delta': 0.01}
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 2 (per MPI rank).
+
+***WF optimization with Variational Monte Carlo***
+The default value of num_mcmc_per_measurement = 40.
+The default value of Dt = 2.0.
+The default value of epsilon_AS = 0.0.
+The default value of wf_dump_freq = 1.
+The default value of opt_J1_param = True.
+The default value of opt_J2_param = True.
+The default value of opt_J3_param = True.
+The default value of opt_geminal = False.
+The default value of fix_geminal_rank = 0.
+The default value of opt_J3_basis_exp = False.
+The default value of opt_J3_basis_coeff = False.
+The default value of opt_lambda_basis_exp = False.
+The default value of opt_lambda_basis_coeff = False.
+The default value of opt_JDTN_u_param = True.
+The default value of opt_JDTN_chi_param = True.
+The default value of opt_JDTN_f_param = True.
+
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+  initial r_up_carts= [[[-0.1460888   0.15433481  1.21806215]]
+
+ [[-0.0820002  -0.06399237  0.683621  ]]
+
+ [[ 0.05577081 -0.17720558  0.63754044]]
+
+ [[ 0.11327788  0.37585646 -0.08528422]]]
+  initial r_dn_carts = [[[ 0.19455311 -0.27900256 -0.98069381]]
+
+ [[ 0.43514214 -0.28971271 -1.02173381]]
+
+ [[ 0.38008156 -0.25211589 -1.05524505]]
+
+ [[ 0.08100213 -0.56259108 -0.30321715]]]
+  initial r_up_carts.shape = (4, 1, 3)
+  initial r_dn_carts.shape = (4, 1, 3)
+
+The number of MPI process = 2.
+The number of walkers assigned for each MPI process = 4.
+
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Full Precision (FP64)
+Zone detail:
+  ao_bloch_eval: float64
+  ao_eval: float64
+  ao_grad_lap: float64
+  coulomb: float64
+  det_eval: float64
+  det_grad_lap: float64
+  det_ratio: float64
+  ewald: float64
+  jastrow_eval: float64
+  jastrow_grad_lap: float64
+  jastrow_grad_lap_carry: float64
+  jastrow_ratio: float64
+  local_energy: float64
+  mo_eval: float64
+  mo_grad: float64
+  mo_lap: float64
+  swct: float64
+  tiling_eval: float64
+  tiling_grad: float64
+  tiling_lap: float64
+  wf_eval: float64
+  wf_kinetic: float64
+  wf_ratio: float64
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = False
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  H, H, 1.0, 0.00000000, 0.00000000, -0.66140414
+  H, H, 1.0, 0.00000000, 0.00000000, 0.66140414
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**SD_data
+  occupied MO rows (up, dn) = (1, 1)
+  num_electron_up = 1
+  num_electron_dn = 1
+  time_reversal = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**Jastrow_two_body_data
+  Jastrow 2b param = 1.0
+  2b Jastrow functional form is the pade type.
+**Jastrow_three_body_data
+  dim. of jastrow_3b_matrix = (1, 2)
+  j3 part of the jastrow_3b_matrix is symmetric? = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+==================================================================
+The chosen optimizer is 'sr'.
+  The homemade 'SR (aka natural gradient)' optimizer is used for wavefunction optimization.
+  Hyperparameters: asr_fallback_gamma=0.1, asr_gamma_max=0.5, cg_flag=True, cg_max_iter=10000, cg_tol=1e-05, delta=0.01, epsilon=0.001, lm_cond=0.001, lm_reference_weight_min=0.9, lm_subspace_dim=0, method=sr, use_device_optimizer=False, use_lm=False
+
+external_control_opt.toml is generated. 
+
+[memory] stage=optimize_pre_loop, RSS_peak_max=0.30 GB
+==================================================================
+Optimization step = 1/2.
+==================================================================
+Sampling steps this iteration = 40.
+Warmup steps = 10.
+Bin blocks = 5.
+
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 2.12 sec.
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.37 GB
+Start MCMC
+  Progress: MCMC step = 0/40: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/40: 2.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 2/40: 5.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 3/40: 7.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 4/40: 10.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 5/40: 12.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 6/40: 15.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 7/40: 17.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 8/40: 20.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 9/40: 22.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 10/40: 25.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 11/40: 27.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 12/40: 30.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 13/40: 32.5 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 14/40: 35.0 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 15/40: 37.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 16/40: 40.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 17/40: 42.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 18/40: 45.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 19/40: 47.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 20/40: 50.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 21/40: 52.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 22/40: 55.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 23/40: 57.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 24/40: 60.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 25/40: 62.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 26/40: 65.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 27/40: 67.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 28/40: 70.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 29/40: 72.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 30/40: 75.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 31/40: 77.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 32/40: 80.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 33/40: 82.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 34/40: 85.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 35/40: 87.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 36/40: 90.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 37/40: 92.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 38/40: 95.0 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 39/40: 97.5 %. Elapsed time = 0.3 sec.
+  Progress: MCMC step = 40/40: 100.0 %. Elapsed time = 0.3 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 40 steps. = 2.97 sec.
+Pre-compilation time for MCMC = 2.12 sec.
+Net total time for MCMC = 0.85 sec.
+Elapsed times per MCMC step, averaged over 40 steps.
+  Time for MCMC update = 2.22 msec.
+  Time for computing e_L = 0.59 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 0.28 msec.
+  Time for computing de_L/dc = 0.00 msec.
+  Time for computing de_L/deps and dln_Psi/deps = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.00 msec.
+  Time for misc. (others) = 18.12 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 45.70 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.40 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -1.12645 +- 0.01933 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 3.
+Number of real optimization coordinates = 3.
+Optimization batch: route=host, local samples=120, sampler ranks=2, real coordinates=3, storage parameters=3.
+  Derivative source j2_param: O shape=(120,), D shape=None, policy=direct_real, tangent=euclidean.
+  Derivative source j3_matrix: O shape=(120, 1, 2), D shape=None, policy=direct_real, tangent=linear_tie.
+Optimizer diagnostics:
+  Coordinates: real=3, storage=3, active=3, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=6.944865e-04, max=2.014338e-02], active[min=6.944865e-04, max=2.014338e-02].
+  SR solve: regime=wide, method=CG, iterations=3, residual=3.276573e-16, tolerance=2.741258e-06, converged=True.
+  SR direction: ||q_SR||=1.101496e+01, max|q_SR|=8.299394e+00.
+  Top 3 coordinates by generalized-force signal-to-noise:
+    j2_param[q0]: force=-1.715456e-02 +- 3.939384e-03, signal-to-noise=4.354630e+00, metric_diag=5.318157e-03.
+    j3_matrix[q1]: force=+1.918226e-02 +- 5.476077e-03, signal-to-noise=3.502921e+00, metric_diag=2.014338e-02.
+    j3_matrix[q0]: force=+1.035247e-03 +- 1.131291e-03, signal-to-noise=9.151019e-01, metric_diag=6.944865e-04.
+  Final real-coordinate update: ||delta_q||=1.101496e-01, max|delta_q|=8.299394e-02.
+  [optimizer block] j2_param: ||force||=1.715456e-02, max|force|=1.715456e-02, max(S/N)=4.354630e+00, metric_diag[min=5.318157e-03, max=5.318157e-03].
+    update: ||delta_q||=8.299394e-02, max|delta_q|=8.299394e-02, ||delta_p||=8.299394e-02, max|delta_p|=8.299394e-02.
+  [optimizer block] j3_matrix: ||force||=1.921018e-02, max|force|=1.918226e-02, max(S/N)=3.502921e+00, metric_diag[min=6.944865e-04, max=2.014338e-02].
+    update: ||delta_q||=7.242200e-02, max|delta_q|=5.395382e-02, ||delta_p||=7.242200e-02, max|delta_p|=5.395382e-02.
+------------------------------------------------------------------
+Max generalized force = 0.0192 +- 0.0055 Ha/a.u.
+Max generalized force signal-to-noise = 4.355.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 3.
+np.count_nonzero(theta) = 3.
+max. and min. of |theta| are 0.0829939415125056 and 0.048310776576775405.
+  [SR update] - block=j2_param size=1  ||delta_p||=8.299e-02  max|delta_p|=8.299e-02  max|applied update|=8.299e-02
+  [SR update] - block=j3_matrix size=2  ||delta_p||=7.242e-02  max|delta_p|=5.395e-02  max|applied update|=5.395e-02
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_1.h5.
+
+==================================================================
+Optimization step = 2/2.
+==================================================================
+Sampling steps this iteration = 40.
+Warmup steps = 10.
+Bin blocks = 5.
+
+external_control_mcmc.toml is generated. 
+
+Skipping compilation (JAX cache is warm from previous run).
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=0.40 GB
+Start MCMC
+  Progress: MCMC step = 0/40: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/40: 2.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 2/40: 5.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 3/40: 7.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 4/40: 10.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 5/40: 12.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 6/40: 15.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 7/40: 17.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 8/40: 20.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 9/40: 22.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 10/40: 25.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 11/40: 27.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 12/40: 30.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 13/40: 32.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 14/40: 35.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 15/40: 37.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 16/40: 40.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 17/40: 42.5 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 18/40: 45.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 19/40: 47.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 20/40: 50.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 21/40: 52.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 22/40: 55.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 23/40: 57.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 24/40: 60.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 25/40: 62.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 26/40: 65.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 27/40: 67.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 28/40: 70.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 29/40: 72.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 30/40: 75.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 31/40: 77.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 32/40: 80.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 33/40: 82.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 34/40: 85.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 35/40: 87.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 36/40: 90.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 37/40: 92.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 38/40: 95.0 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 39/40: 97.5 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 40/40: 100.0 %. Elapsed time = 0.1 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 40 steps. = 0.12 sec.
+Pre-compilation time for MCMC = 0.00 sec.
+Net total time for MCMC = 0.12 sec.
+Elapsed times per MCMC step, averaged over 40 steps.
+  Time for MCMC update = 1.42 msec.
+  Time for computing e_L = 0.49 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 0.27 msec.
+  Time for computing de_L/dc = 0.00 msec.
+  Time for computing de_L/deps and dln_Psi/deps = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.00 msec.
+  Time for misc. (others) = 0.83 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 44.95 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.40 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -1.13815 +- 0.01542 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 3.
+Number of real optimization coordinates = 3.
+Optimization batch: route=host, local samples=120, sampler ranks=2, real coordinates=3, storage parameters=3.
+  Derivative source j2_param: O shape=(120,), D shape=None, policy=direct_real, tangent=euclidean.
+  Derivative source j3_matrix: O shape=(120, 1, 2), D shape=None, policy=direct_real, tangent=linear_tie.
+Optimizer diagnostics:
+  Coordinates: real=3, storage=3, active=3, frozen=0 in 0 atomic group(s).
+  SR metric diagonal: all[min=8.010740e-04, max=2.194385e-02], active[min=8.010740e-04, max=2.194385e-02].
+  SR solve: regime=wide, method=CG, iterations=3, residual=4.899761e-15, tolerance=2.895314e-06, converged=True.
+  SR direction: ||q_SR||=1.056687e+01, max|q_SR|=7.105743e+00.
+  Top 3 coordinates by generalized-force signal-to-noise:
+    j3_matrix[q1]: force=+3.218485e-02 +- 4.497608e-03, signal-to-noise=7.155992e+00, metric_diag=2.194385e-02.
+    j3_matrix[q0]: force=+4.333868e-03 +- 1.013181e-03, signal-to-noise=4.277485e+00, metric_diag=8.010740e-04.
+    j2_param[q0]: force=-8.925299e-03 +- 3.537852e-03, signal-to-noise=2.522802e+00, metric_diag=6.045626e-03.
+  Final real-coordinate update: ||delta_q||=1.056687e-01, max|delta_q|=7.105743e-02.
+  [optimizer block] j2_param: ||force||=8.925299e-03, max|force|=8.925299e-03, max(S/N)=2.522802e+00, metric_diag[min=6.045626e-03, max=6.045626e-03].
+    update: ||delta_q||=6.088313e-02, max|delta_q|=6.088313e-02, ||delta_p||=6.088313e-02, max|delta_p|=6.088313e-02.
+  [optimizer block] j3_matrix: ||force||=3.247533e-02, max|force|=3.218485e-02, max(S/N)=7.155992e+00, metric_diag[min=8.010740e-04, max=2.194385e-02].
+    update: ||delta_q||=8.636614e-02, max|delta_q|=7.105743e-02, ||delta_p||=8.636614e-02, max|delta_p|=7.105743e-02.
+------------------------------------------------------------------
+Max generalized force = 0.0322 +- 0.0045 Ha/a.u.
+Max generalized force signal-to-noise = 7.156.
+SR solver path: regime=wide, method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 3.
+np.count_nonzero(theta) = 3.
+max. and min. of |theta| are 0.07105743485747894 and 0.049091248521381414.
+  [SR update] - block=j2_param size=1  ||delta_p||=6.088e-02  max|delta_p|=6.088e-02  max|applied update|=6.088e-02
+  [SR update] - block=j3_matrix size=2  ||delta_p||=8.637e-02  max|delta_p|=7.106e-02  max|applied update|=7.106e-02
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Hamiltonian data is dumped as an HDF5 file: hamiltonian_data_opt_step_2.h5.
+
+Total elapsed time for optimization 2 steps. = 3.595105 sec.
+Elapsed times per optimization step, averaged over 2 steps.
+  Time for sampling = 1.551590 sec.
+  Time for computing E = 0.000576 sec.
+  Time for computing generalized forces (gF) = 0.000900 sec.
+  Time for optimizer (SR) = 0.002385 sec.
+  Time for parameter update = 0.229988 sec.
+  Time for MPI barrier = 0.000048 sec.
+  Time for misc. (others) = 0.012064 sec.
+
+Delete external_control_opt.toml
+[memory] stage=optimize_post_loop, RSS_peak_max=0.40 GB
+
+Dump restart checkpoint file(s) to restart.h5.
+
+Program ends 2026-11-18 11:16:17

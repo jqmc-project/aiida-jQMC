@@ -1,0 +1,44 @@
+name: aiida-jQMC public TestPyPI deploy
+
+# The release-candidate policy of jQMC: a push to rc (not main) publishes to TestPyPI.
+on:
+  push:
+    branches: [rc]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-testpypi
+  cancel-in-progress: false
+
+jobs:
+  package:
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    uses: ./.github/workflows/public-build-distributions.yml
+
+  deploy-test-pypi:
+    name: publish aiida-jqmc to test-pypi
+    if: github.repository == 'jqmc-project/aiida-jQMC' && github.ref == 'refs/heads/rc'
+    needs: package
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: public-distributions
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_JQMC_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
+          skip-existing: true
+          verbose: true
+
+  verify-test-pypi:
+    if: github.repository == 'jqmc-project/aiida-jQMC' && github.ref == 'refs/heads/rc'
+    needs: deploy-test-pypi
+    uses: ./.github/workflows/public-verify-index.yml
+    with:
+      index: https://test.pypi.org/simple/

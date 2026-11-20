@@ -1,0 +1,137 @@
+name: aiida-jQMC public distribution build
+
+# One build-and-check recipe for the public distribution check, TestPyPI, PyPI
+# and the wheel CI of forge, as jQMC's public-build-distributions.yml. No
+# publishing credentials enter this workflow. It runs no plugin tests: the plugin is
+# tested in forge.
+#
+# One sdist, then the one pure-Python wheel built FROM that sdist. The wheel is
+# installed with its dependencies on every supported Python, with the lowest
+# supported jqmc release (`jqmc>=X.Y.Z`, pinned) and with what a plain
+# `pip install aiida-jqmc` resolves today, and the installed package is checked
+# as a user runs it (scripts/check_installed_aiida_jqmc.py). `public-distributions`
+# (what the deploy jobs publish) is assembled only after every check passed.
+# A caller can name an artifact of the same run that holds one jqmc wheel: the
+# wheel is then checked with that jqmc instead of the PyPI releases, on every
+# supported Python.
+on:
+  workflow_call:
+    inputs:
+      jqmc-wheel-artifact:
+        description: Artifact of this run with one jqmc wheel to install instead of jqmc from PyPI
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+
+jobs:
+  build:
+    name: Source distribution and wheel
+    if: contains(fromJSON('["jqmc-project/aiida-jQMC", "jqmc-project/aiida-jQMC-forge"]'), github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install distribution tools
+        run: python -m pip install --upgrade build twine packaging
+      - name: Build the source distribution, then the wheel from it
+        # Without --sdist/--wheel, build makes the sdist and builds the wheel
+        # from the unpacked sdist, not from the checkout.
+        run: |
+          python -m build
+          python -m twine check --strict dist/*
+      - name: Validate the wheel against the source distribution
+        run: python scripts/check_built_distributions.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: built-distributions
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 7
+
+  verify:
+    name: Wheel Python ${{ matrix.python }} jqmc ${{ matrix.jqmc }}
+    if: contains(fromJSON('["jqmc-project/aiida-jQMC", "jqmc-project/aiida-jQMC-forge"]'), github.repository)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # minimum: the lower bound of `jqmc>=X.Y.Z`, pinned. newest: what a
+        # plain `pip install aiida-jqmc` resolves today. wheel: the jqmc wheel
+        # of the jqmc-wheel-artifact input.
+        include: >-
+          ${{ fromJSON(inputs.jqmc-wheel-artifact == ''
+          && '[{"python": "3.11", "jqmc": "minimum"}, {"python": "3.12", "jqmc": "minimum"}, {"python": "3.12", "jqmc": "newest"}]'
+          || '[{"python": "3.11", "jqmc": "wheel"}, {"python": "3.12", "jqmc": "wheel"}]') }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/download-artifact@v8
+        with:
+          name: built-distributions
+          path: dist
+      - if: matrix.jqmc == 'wheel'
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ inputs.jqmc-wheel-artifact }}
+          path: jqmc-wheel
+      - name: Install the wheel with its runtime dependencies
+        env:
+          JQMC_VERSIONS: ${{ matrix.jqmc }}
+        run: |
+          python -m pip install --upgrade pip
+          if [ "$JQMC_VERSIONS" = minimum ]; then
+            python -m pip install packaging
+            python -m pip install dist/*.whl "jqmc==$(python .github/jqmc_lower_bound.py)"
+          elif [ "$JQMC_VERSIONS" = wheel ]; then
+            test "$(ls jqmc-wheel/jqmc-*.whl | wc -l)" -eq 1
+            python -m pip install dist/*.whl jqmc-wheel/jqmc-*.whl
+          else
+            python -m pip install dist/*.whl
+          fi
+          python -m pip check
+          python -m pip show aiida-jqmc jqmc aiida-core | grep -E '^(Name|Version):'
+      - name: Check the installed plugin (entry points, input files, parser)
+        run: |
+          python -I scripts/check_installed_aiida_jqmc.py --commit "$GITHUB_SHA" \
+            tests/data/H2_ecp_ccpvdz_jsd.h5 tests/data/mcmc.out
+
+  collect:
+    name: Collect the tested distributions
+    if: contains(fromJSON('["jqmc-project/aiida-jQMC", "jqmc-project/aiida-jQMC-forge"]'), github.repository)
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: built-distributions
+          path: dist
+      - name: Require the sdist and the wheel
+        run: |
+          ls -l dist
+          test "$(ls dist/*.tar.gz | wc -l)" -eq 1
+          test "$(ls dist/*.whl | wc -l)" -eq 1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: public-distributions
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 7

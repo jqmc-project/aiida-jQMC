@@ -1,0 +1,255 @@
+Program starts 2026-10-29 10:18:39
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]']
+
+Input file = mcmc_max_time.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=mcmc
+  restart=True
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+  max_time=1
+
+**section:mcmc**
+  num_mcmc_steps=1000000
+  num_mcmc_warmup_steps=30
+  num_mcmc_bin_blocks=10
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 8 (per MPI rank).
+
+The default value of mcmc_seed = 34456.
+The default value of number_of_walkers = 4.
+The default value of verbosity = low.
+***Variational Monte Carlo***
+The default value of num_mcmc_per_measurement = 40.
+The default value of Dt = 2.0.
+The default value of epsilon_AS = 0.0.
+The default value of atomic_force = False.
+The default value of compute_stress = False.
+The default value of use_swct = True.
+The default value of parameter_derivatives = False.
+Read restart checkpoint file(s) from restart.h5.
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Full Precision (FP64)
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = False
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  H, H, 1.0, 0.00000000, 0.00000000, -0.66140414
+  H, H, 1.0, 0.00000000, 0.00000000, 0.66140414
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**SD_data
+  occupied MO rows (up, dn) = (1, 1)
+  num_electron_up = 1
+  num_electron_dn = 1
+  time_reversal = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+**Jastrow_two_body_data
+  Jastrow 2b param = 1.0
+  2b Jastrow functional form is the pade type.
+**Jastrow_three_body_data
+  dim. of jastrow_3b_matrix = (1, 2)
+  j3 part of the jastrow_3b_matrix is symmetric? = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 10)
+**AOs_cart_gto_data**
+  Number of AOs = 10
+  Number of primitive AOs = 24
+  Angular part is the polynomial (Cartesian) function.
+  ------------------------------------
+  **basis set for atom index 1: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: H**
+  ------------------------------------
+  H s
+    23.843185 0.0041149
+    10.212443 0.0104644
+    4.374164 0.0280111
+    1.873529 0.0758862
+    0.802465 0.1821062
+    0.343709 0.3485214
+    0.147217 0.3782313
+    0.063055 0.1164241
+  H s
+    0.139013 1.0000000
+  H p
+    0.740212 1.0000000
+==================================================================
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 0.56 sec.
+
+Start MCMC
+  Progress: MCMC step = 60/1000060: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 560/1000060: 0.1 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1060/1000060: 0.1 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 1560/1000060: 0.2 %. Elapsed time = 0.1 sec.
+  Progress: MCMC step = 2060/1000060: 0.2 %. Elapsed time = 0.2 sec.
+  Progress: MCMC step = 2560/1000060: 0.3 %. Elapsed time = 0.2 sec.
+  Stopping... max_time = 1 sec. exceeds.
+  Break the mcmc loop.
+  Progress: MCMC step = 3060/1000060: 0.3 %. Elapsed time = 0.2 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 3000 steps. = 1.01 sec.
+Pre-compilation time for MCMC = 0.57 sec.
+Net total time for MCMC = 0.44 sec.
+Elapsed times per MCMC step, averaged over 3000 steps.
+  Time for MCMC update = 0.07 msec.
+  Time for computing e_L = 0.00 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 0.00 msec.
+  Time for computing de_L/dc = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.00 msec.
+  Time for misc. (others) = 0.08 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 45.12 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+Dump restart checkpoint file(s) to restart.h5.
+
+Final output(s):
+  Total Energy: E = -1.14957 +- 0.00216 Ha.
+  Variance: Var = 0.07360 +- 0.00120 Ha^2.
+
+Program ends 2026-10-29 10:18:40

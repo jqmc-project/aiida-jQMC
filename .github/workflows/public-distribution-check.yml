@@ -1,0 +1,49 @@
+name: aiida-jQMC public distribution check
+
+# The public CI of aiida-jQMC, as jQMC's: the distributions are built, checked
+# and installed, and the installed plugin is checked as a user runs it
+# (public-build-distributions.yml); the documentation is built with warnings as
+# errors (public-build-docs.yml). The plugin is tested in forge.
+on:
+  push:
+    # rc pushes already run the identical distribution check before TestPyPI.
+    branches: [main]
+  pull_request:
+    branches: [main, rc]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-distribution-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    uses: ./.github/workflows/public-build-distributions.yml
+
+  docs:
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    uses: ./.github/workflows/public-build-docs.yml
+
+  distribution-result:
+    name: public-distribution-check
+    if: github.repository == 'jqmc-project/aiida-jQMC' && always()
+    needs: [package, docs]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require the distribution build, every wheel check and the documentation to pass
+        env:
+          JOB_RESULTS: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+
+          results = json.loads(os.environ["JOB_RESULTS"])
+          if set(results) != {"package", "docs"} or any(job["result"] != "success" for job in results.values()):
+              raise SystemExit(f"The public distribution check is incomplete or failed: {results}")
+          PY

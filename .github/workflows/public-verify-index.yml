@@ -1,0 +1,89 @@
+name: aiida-jQMC public wheel index verification
+
+# Called by the deploy workflows after an upload, as jQMC's: download the
+# aiida-jqmc wheel from the index, require it to be the file that passed the
+# distribution check (same sha256 as public-distributions), install it with its
+# dependencies from PyPI in a fresh environment and check the installed plugin
+# with it. Dependencies never come from TestPyPI.
+on:
+  workflow_call:
+    inputs:
+      index:
+        description: Simple index URL the files were uploaded to
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+
+jobs:
+  verify-index:
+    name: Uploaded wheel
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v8
+        with:
+          name: public-distributions
+          path: tested
+      - name: Download the uploaded wheel and compare it with the tested one
+        env:
+          INDEX_URL: ${{ inputs.index }}
+        run: |
+          python -m pip install --upgrade pip packaging
+          python - <<'PY'
+          import hashlib
+          import os
+          import subprocess
+          import sys
+          import time
+          from pathlib import Path
+          from packaging.utils import parse_wheel_filename
+
+          tested = list(Path("tested").glob("*.whl"))
+          if len(tested) != 1:
+              raise SystemExit(f"Expected one tested wheel, got {tested}")
+          tested = tested[0]
+          version = parse_wheel_filename(tested.name)[1]
+          index = Path("index")
+          # The index can take minutes to list a new upload.
+          for attempt in range(40):
+              result = subprocess.run(
+                  [sys.executable, "-m", "pip", "download", "--no-deps", "--only-binary", ":all:", "--no-cache-dir",
+                   "--index-url", os.environ["INDEX_URL"], f"aiida-jqmc=={version}", "-d", str(index)],
+                  capture_output=True, text=True,
+              )
+              if result.returncode == 0:
+                  break
+              print(f"aiida-jqmc=={version} not available yet ({attempt + 1}/40)", flush=True)
+              time.sleep(30)
+          else:
+              raise SystemExit(f"aiida-jqmc=={version} never became downloadable:\n{result.stderr}")
+          downloaded, = index.glob("*.whl")
+          digest = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in (tested, downloaded)}
+          print(f"tested     {tested.name} {digest[tested]}")
+          print(f"downloaded {downloaded.name} {digest[downloaded]}")
+          if downloaded.name != tested.name or digest[downloaded] != digest[tested]:
+              raise SystemExit("The uploaded wheel is not the tested wheel")
+          PY
+      - name: Install the uploaded wheel with its dependencies from PyPI
+        run: |
+          python -m venv "$RUNNER_TEMP/user"
+          "$RUNNER_TEMP/user/bin/python" -m pip install --upgrade pip
+          "$RUNNER_TEMP/user/bin/python" -m pip install index/*.whl
+          "$RUNNER_TEMP/user/bin/python" -m pip check
+      - name: Check the installed plugin (entry points, input files, parser)
+        run: |
+          "$RUNNER_TEMP/user/bin/python" -I scripts/check_installed_aiida_jqmc.py --commit "$GITHUB_SHA" \
+            tests/data/H2_ecp_ccpvdz_jsd.h5 tests/data/mcmc.out

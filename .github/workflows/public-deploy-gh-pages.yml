@@ -1,0 +1,44 @@
+name: aiida-jQMC public docs deploy
+
+# As jQMC: a push to rc-gh-pages builds the manual and publishes it to GitHub
+# Pages with the GitHub Actions source: no branch is written, and the
+# github-pages environment admits deployments from rc-gh-pages only.
+on:
+  push:
+    branches: [rc-gh-pages]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-gh-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'jqmc-project/aiida-jQMC'
+    uses: ./.github/workflows/public-build-docs.yml
+
+  docs:
+    name: publish aiida-jqmc docs to GitHub Pages
+    if: github.repository == 'jqmc-project/aiida-jQMC' && github.ref == 'refs/heads/rc-gh-pages'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: public-docs
+          path: docs_build
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs_build/
+          retention-days: 7
+      - id: deployment
+        uses: actions/deploy-pages@v5

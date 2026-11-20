@@ -1,0 +1,5 @@
+Read restart checkpoint file(s) from mcmc/restart.h5.
+num_mcmc_warmup_steps should be larger than 30.
+num_mcmc_bin_blocks should be larger than 10.
+Found 120 MPI ranks.
+Error: atomic_force was not enabled during the MCMC run. Cannot compute forces.

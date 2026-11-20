@@ -1,0 +1,178 @@
+Program starts 2026-11-17 21:58:39
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048), CpuDevice(id=4096), CpuDevice(id=6144), CpuDevice(id=8192), CpuDevice(id=10240), CpuDevice(id=12288), CpuDevice(id=14336)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]', 'Rank 2: [CpuDevice(id=4096)]', 'Rank 3: [CpuDevice(id=6144)]', 'Rank 4: [CpuDevice(id=8192)]', 'Rank 5: [CpuDevice(id=10240)]', 'Rank 6: [CpuDevice(id=12288)]', 'Rank 7: [CpuDevice(id=14336)]']
+
+Input file = aiida.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=vmc
+  mcmc_seed=2
+  number_of_walkers=2
+  max_time=86400
+  restart=False
+  restart_chk=restart_twists
+  hamiltonian_h5=hamiltonian_data.h5
+  verbosity=low
+
+**section:vmc**
+  num_mcmc_steps=20
+  num_mcmc_warmup_steps=5
+  num_mcmc_bin_blocks=5
+  num_opt_steps=1
+  opt_geminal=True
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 1 (per MPI rank).
+
+Twist-averaged dispatch: 8 twists detected in hamiltonian_data.h5 (BZ sum w = 2.000000).
+The number of MPI process = 1.
+The number of walkers assigned for each MPI process = 2.
+
+external_control_opt.toml is generated. 
+
+The chosen optimizer is 'sr'.
+  The homemade 'SR (aka natural gradient)' optimizer is used for wavefunction optimization.
+  use_lm=True, lm_subspace_dim=0: accelerated SR (aSR) gamma scaling.
+  Hyperparameters: asr_fallback_gamma=0.1, asr_gamma_max=0.5, cg_flag=True, cg_max_iter=10000, cg_tol=1e-05, delta=0.15, epsilon=0.001, lm_cond=0.001, lm_reference_weight_min=0.9, lm_subspace_dim=0, method=sr, use_device_optimizer=False, use_lm=True
+
+==================================================================
+Optimization step = 1/1.
+==================================================================
+Sampling steps this iteration = 20.
+Warmup steps = 5.
+Bin blocks = 5.
+
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 4.13 sec.
+
+Start MCMC
+  Progress: MCMC step = 0/20: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 1/20: 5.0 %. Elapsed time = 0.8 sec.
+  Progress: MCMC step = 2/20: 10.0 %. Elapsed time = 1.3 sec.
+  Progress: MCMC step = 3/20: 15.0 %. Elapsed time = 1.8 sec.
+  Progress: MCMC step = 4/20: 20.0 %. Elapsed time = 2.3 sec.
+  Progress: MCMC step = 5/20: 25.0 %. Elapsed time = 2.8 sec.
+  Progress: MCMC step = 6/20: 30.0 %. Elapsed time = 3.3 sec.
+  Progress: MCMC step = 7/20: 35.0 %. Elapsed time = 3.8 sec.
+  Progress: MCMC step = 8/20: 40.0 %. Elapsed time = 4.4 sec.
+  Progress: MCMC step = 9/20: 45.0 %. Elapsed time = 4.9 sec.
+  Progress: MCMC step = 10/20: 50.0 %. Elapsed time = 5.4 sec.
+  Progress: MCMC step = 11/20: 55.0 %. Elapsed time = 5.9 sec.
+  Progress: MCMC step = 12/20: 60.0 %. Elapsed time = 6.4 sec.
+  Progress: MCMC step = 13/20: 65.0 %. Elapsed time = 6.9 sec.
+  Progress: MCMC step = 14/20: 70.0 %. Elapsed time = 7.4 sec.
+  Progress: MCMC step = 15/20: 75.0 %. Elapsed time = 8.0 sec.
+  Progress: MCMC step = 16/20: 80.0 %. Elapsed time = 8.5 sec.
+  Progress: MCMC step = 17/20: 85.0 %. Elapsed time = 9.0 sec.
+  Progress: MCMC step = 18/20: 90.0 %. Elapsed time = 9.5 sec.
+  Progress: MCMC step = 19/20: 95.0 %. Elapsed time = 10.0 sec.
+  Progress: MCMC step = 20/20: 100.0 %. Elapsed time = 10.5 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 20 steps. = 15.21 sec.
+Pre-compilation time for MCMC = 4.13 sec.
+Net total time for MCMC = 11.08 sec.
+Elapsed times per MCMC step, averaged over 20 steps.
+  Time for MCMC update = 22.49 msec.
+  Time for computing e_L = 8.30 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 154.47 msec.
+  Time for computing de_L/dc = 331.26 msec.
+  Time for computing de_L/deps and dln_Psi/deps = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.00 msec.
+  Time for misc. (others) = 37.74 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 91.56 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=0.56 GB
+Total Energy before update of wavefunction.
+------------------------------------------------------------------
+E = -0.62905 +- 0.00774 Ha
+------------------------------------------------------------------
+
+Number of variational parameters = 43.
+Number of variational parameters (all twists) = 337.
+Number of real optimization coordinates = 85.
+Number of real optimization coordinates (all twists) = 673.
+aSR: gamma+ = 0.254506, gamma- = -99.328859.
+aSR: selected gamma+ = 0.254506 (smaller-|gamma|, reference-connected root).
+aSR: selected root is in the steepest-descent direction.
+aSR: final gamma = 0.254506.
+aSR: gamma+ = -0.167112, gamma- = 95.785883.
+aSR: selected gamma+ = -0.167112 (smaller-|gamma|, reference-connected root).
+aSR: selected root is NEGATIVE (anti-SR direction): the non-symmetric model detects the covariance direction to be uphill; stepping backward.
+aSR: final gamma = -0.167112.
+------------------------------------------------------------------
+Max generalized force = -1.385 +- 1.375 Ha/a.u.
+Max generalized force signal-to-noise = 4.594.
+  Twist 0 local max generalized force signal-to-noise = 2.385.
+  Twist 1 local max generalized force signal-to-noise = 2.543.
+  Twist 2 local max generalized force signal-to-noise = 1.848.
+  Twist 3 local max generalized force signal-to-noise = 2.889.
+  Twist 4 local max generalized force signal-to-noise = 4.495.
+  Twist 5 local max generalized force signal-to-noise = 2.904.
+  Twist 6 local max generalized force signal-to-noise = 2.699.
+  Twist 7 local max generalized force signal-to-noise = 3.658.
+SR solver path: regime=twist-decomposed[world:wide-host-mpi,sampler:tall-host-mpi], method=CG, backend=CPU/MPI
+------------------------------------------------------------------
+theta.size = 43.
+np.count_nonzero(theta) = 43.
+max. and min. of |theta| are 1.2465150011402206 and 3.153839713673099e-08.
+  [aSR update] - block=j2_param size=1  ||delta_p||=2.149e-01  max|delta_p|=2.149e-01  max|applied update|=2.149e-01
+  [aSR update] - block=mo_coefficients_up size=42  ||delta_p||=1.258e+00  max|delta_p|=1.247e+00  max|applied update|=1.247e+00
+Updating parameters with optimizer 'sr'.
+Wavefunction has been updated. Optimization loop is done.
+
+Total elapsed time for optimization 1 steps. = 16.982826 sec.
+Elapsed times per optimization step, averaged over 1 steps.
+  Time for sampling = 15.216569 sec.
+  Time for computing E = 0.044352 sec.
+  Time for computing generalized forces (gF) = 0.001305 sec.
+  Time for optimizer (aSR) = 0.056440 sec.
+  Time for parameter update = 1.662160 sec.
+  Time for MPI barrier = 0.000004 sec.
+  Time for misc. (others) = 0.001997 sec.
+
+[memory] stage=optimize_post_loop, RSS_peak_max=0.57 GB
+Twist-averaged Hamiltonian data (8 twists) is dumped as an HDF5 file: hamiltonian_data_opt_step_1.h5.
+Delete external_control_opt.toml
+Twist-averaged optimization complete. Shared Jastrow parameters were synchronized across twists; determinant parameters were optimized in their twist-local sampler communicators.
+Program ends 2026-11-17 21:59:01

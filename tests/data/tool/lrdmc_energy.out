@@ -1,0 +1,4 @@
+Read restart checkpoint file(s) from a030/restart.h5.
+Found 120 MPI ranks.
+Total number of binned samples = 10
+E = -1.1735090847922371 +- 1.9157831808956827e-05 Ha.

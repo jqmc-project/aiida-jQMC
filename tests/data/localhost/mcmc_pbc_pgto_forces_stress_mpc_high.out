@@ -1,0 +1,427 @@
+Program starts 2026-10-30 01:49:48
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]']
+
+jax:    0.10.2
+jaxlib: 0.10.2
+numpy:  2.5.4
+python: 3.12.16 (main, Oct 26 2026, 11:31:43) [Clang 21.1.8 ]
+device info: cpu-2, 1 local devices"
+process_count: 2
+platform: uname_result(system='Darwin', node='test-host', release='test-release', version='test-version', machine='arm64')
+Input file = aiida.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=mcmc
+  mcmc_seed=34478
+  number_of_walkers=2
+  verbosity=high
+  restart=False
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+
+**section:mcmc**
+  num_mcmc_steps=40
+  num_mcmc_per_measurement=4
+  num_mcmc_warmup_steps=10
+  num_mcmc_bin_blocks=5
+  atomic_force=True
+  compute_stress=True
+
+**section:coulomb**
+  mpc=True
+  mpc_cutoff=10.0
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 8 (per MPI rank).
+
+The default value of max_time = 86400.
+***Variational Monte Carlo***
+The default value of Dt = 2.0.
+The default value of epsilon_AS = 0.0.
+The default value of use_swct = True.
+The default value of parameter_derivatives = False.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 4.441e-16, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 0.000e+00.
+  initial r_up_carts= [[[3.38645572 3.42431336 3.74482674]]
+
+ [[3.49906009 3.51871956 3.15579462]]]
+  initial r_dn_carts = [[[0.60483676 0.47384599 0.32530711]]
+
+ [[6.60789147 6.5580555  6.22716017]]]
+  initial r_up_carts.shape = (2, 1, 3)
+  initial r_dn_carts.shape = (2, 1, 3)
+
+The number of MPI process = 2.
+The number of walkers assigned for each MPI process = 2.
+
+MPC setup: building the tables on rank 0 and broadcasting them to 2 ranks.
+MPC setup: cutoff = 10.0 Ha, grid = (64, 64, 64), n_max = 2; g_G is extrapolated from the N, 2N and 4N grids.
+  MPC setup: g_G on the 1N grid (64, 64, 64) done in 0.9 sec.
+  MPC setup: g_G on the 2N grid (128, 128, 128) done in 1.2 sec.
+  MPC setup: g_G on the 4N grid (256, 256, 256) done in 2.4 sec.
+  MPC setup: trial density on the (64, 64, 64) grid done in 42.1 sec.
+MPC setup: done in 48.5 sec.
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Full Precision (FP64)
+Zone detail:
+  ao_eval: float64
+  ao_grad_lap: float64
+  coulomb: float64
+  det_eval: float64
+  det_grad_lap: float64
+  det_ratio: float64
+  ewald: float64
+  jastrow_eval: float64
+  jastrow_grad_lap: float64
+  jastrow_ratio: float64
+  local_energy: float64
+  mo_eval: float64
+  mo_grad: float64
+  mo_lap: float64
+  swct: float64
+  wf_eval: float64
+  wf_kinetic: float64
+  wf_ratio: float64
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = True
+  vec A = [6.6329 0.     0.    ] Bohr
+  vec B = [0.     6.6329 0.    ] Bohr
+  vec C = [0.     0.     6.6329] Bohr
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  Li, Li, 3.0, 0.00000000, 0.00000000, 0.00000000
+  Li, Li, 3.0, 3.31645000, 3.31645000, 3.31645000
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**Ewald_data
+  eta = 0.488146 Bohr^-1
+  r_real_cut = 9.8301 Bohr
+  g_max = 4.6848 Bohr^-1
+  N_real_images = 389
+  N_g = 484
+  ii_energy = -0.5486640006 Ha
+**SD_data
+  occupied MO rows (up, dn) = (1, 1)
+  num_electron_up = 1
+  num_electron_dn = 1
+  time_reversal = True
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 42)
+**AOs_cart_pgto_data**
+  Number of AOs = 42
+  Number of primitive AOs = 10857
+  Angular part is the polynomial (Cartesian) function.
+  Number of lattice image cells = 1331
+  max |n_a|, |n_b|, |n_c| over image indices = 6
+  image truncation tolerance = 1.000e-07
+  ------------------------------------
+  **basis set for atom index 1: Li**
+  ------------------------------------
+  Li s
+    0.023025 1.0000000
+  Li s
+    0.064031 1.0000000
+  Li s
+    0.588514 1.0000000
+  Li s
+    3.866154 1.0000000
+  Li s
+    5.937640 1.0000000
+  Li s
+    190.077040 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: Li**
+  ------------------------------------
+  Li s
+    0.023025 1.0000000
+  Li s
+    0.064031 1.0000000
+  Li s
+    0.588514 1.0000000
+  Li s
+    3.866154 1.0000000
+  Li s
+    5.937640 1.0000000
+  Li s
+    190.077040 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+**MOs_data
+  Number of MOs = 1
+  dim. of MOs coeff = (1, 42)
+**AOs_cart_pgto_data**
+  Number of AOs = 42
+  Number of primitive AOs = 10857
+  Angular part is the polynomial (Cartesian) function.
+  Number of lattice image cells = 1331
+  max |n_a|, |n_b|, |n_c| over image indices = 6
+  image truncation tolerance = 1.000e-07
+  ------------------------------------
+  **basis set for atom index 1: Li**
+  ------------------------------------
+  Li s
+    0.023025 1.0000000
+  Li s
+    0.064031 1.0000000
+  Li s
+    0.588514 1.0000000
+  Li s
+    3.866154 1.0000000
+  Li s
+    5.937640 1.0000000
+  Li s
+    190.077040 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  ------------------------------------
+  **basis set for atom index 2: Li**
+  ------------------------------------
+  Li s
+    0.023025 1.0000000
+  Li s
+    0.064031 1.0000000
+  Li s
+    0.588514 1.0000000
+  Li s
+    3.866154 1.0000000
+  Li s
+    5.937640 1.0000000
+  Li s
+    190.077040 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+  Li p
+    0.012961 1.0000000
+  Li p
+    0.035854 1.0000000
+  Li p
+    0.104714 1.0000000
+  Li p
+    0.478659 1.0000000
+  Li p
+    1.196647 1.0000000
+**Jastrow_two_body_data
+  Jastrow 2b param = 1.0
+  2b Jastrow functional form is the pade type.
+==================================================================
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 1.17 sec.
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=3.90 GB
+Start MCMC
+  Progress: MCMC step = 0/40: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 40/40: 100.0 %. Elapsed time = 9.1 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 40 steps. = 11.07 sec.
+Pre-compilation time for MCMC = 1.15 sec.
+Net total time for MCMC = 9.92 sec.
+Elapsed times per MCMC step, averaged over 40 steps.
+  Time for MCMC update = 222.33 msec.
+  Time for computing e_L = 0.01 msec.
+  Time for computing de_L/dR and de_L/dr = 0.02 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 0.00 msec.
+  Time for computing de_L/dc = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.00 msec.
+  Time for misc. (others) = 25.53 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 93.59 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=3.90 GB
+Dump restart checkpoint file(s) to restart.h5.
+
+num_mcmc_warmup_steps should be larger than 30
+num_mcmc_bin_blocks should be larger than 10
+num_mcmc_warmup_steps should be larger than 30
+num_mcmc_bin_blocks should be larger than 10
+num_mcmc_warmup_steps should be larger than 30
+num_mcmc_bin_blocks should be larger than 10
+Final output(s):
+  Total Energy: E = -0.77497 +- 0.01466 Ha.
+  Variance: Var = 0.05182 +- 0.04301 Ha^2.
+  MPC correction: dE_MPC = +0.06917 +- 0.00290 Ha (cutoff = 10.0 Ha).
+  Total Energy (MPC-corrected): E_MPC = -0.70581 +- 0.01402 Ha.
+  Atomic Forces:
+  ------------------------------------------------
+  Label   Fx(Ha/bohr) Fy(Ha/bohr) Fz(Ha/bohr)
+  ------------------------------------------------
+  Li      +0.005(5)    -0.006(6)    +0.010(7)   
+  Li      -0.005(5)    +0.006(6)    -0.010(7)   
+  ------------------------------------------------
+  Stress Tensor (sigma):
+  ------------------------------------------------
+  Component   Value (Ha/bohr^3)
+  ------------------------------------------------
+  sigma_xx    +0.0000(4)
+  sigma_yy    -0.0001(4)
+  sigma_zz    +0.0001(4)
+  sigma_xy    +6(4)e-05
+  sigma_xz    -5.1(2.1)e-05
+  sigma_yz    +6.1(2.8)e-05
+  ------------------------------------------------
+  Pressure (P = -diag(sigma)):
+  ------------------------------------------------
+  Component   Value (Ha/bohr^3)
+  ------------------------------------------------
+  P_x         -0.0000(4)
+  P_y         +0.0001(4)
+  P_z         -0.0001(4)
+  P_hydro     +0.0000(4)
+  ------------------------------------------------
+
+Program ends 2026-10-30 01:50:54

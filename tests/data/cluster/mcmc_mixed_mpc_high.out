@@ -1,0 +1,255 @@
+Program starts 2026-10-29 20:14:08
+
+------------------------------------------------
+      d8b  .d88888b.  888b     d888  .d8888b.   
+      Y8P d88P" "Y88b 8888b   d8888 d88P  Y88b  
+          888     888 88888b.d88888 888    888  
+     8888 888     888 888Y88888P888 888         
+      888 888     888 888 Y888P 888 888         
+      888 888 Y8b 888 888  Y8P  888 888    888  
+      888 Y88b.Y8b88P 888       888 Y88b  d88P  
+      888  "Y888888"  888       888   Y8888P    
+      888        Y8b                            
+     d88P                                       
+   888P                           Made on earth 
+------------------------------------------------
+
+jQMC: Python-based real-space ab-initio Quantum Monte Carlo package.
+version = 0.0.0
+git commit = 0000000000000000000000000000000000000000
+
+Authors: Kosuke Nakano [kousuke_1123@icloud.com]
+
+***The 3-Clause BSD License***
+
+Copyright (C) 2024- Kosuke Nakano
+All rights reserved.
+
+JAX distributed initialization is successful.
+
+*** XLA Global devices recognized by JAX***
+[CpuDevice(id=0), CpuDevice(id=2048), CpuDevice(id=4096), CpuDevice(id=6144), CpuDevice(id=8192), CpuDevice(id=10240), CpuDevice(id=12288), CpuDevice(id=14336), CpuDevice(id=16384), CpuDevice(id=18432), CpuDevice(id=20480), CpuDevice(id=22528), CpuDevice(id=24576), CpuDevice(id=26624), CpuDevice(id=28672), CpuDevice(id=30720), CpuDevice(id=32768), CpuDevice(id=34816), CpuDevice(id=36864), CpuDevice(id=38912), CpuDevice(id=40960), CpuDevice(id=43008), CpuDevice(id=45056), CpuDevice(id=47104), CpuDevice(id=49152), CpuDevice(id=51200), CpuDevice(id=53248), CpuDevice(id=55296), CpuDevice(id=57344), CpuDevice(id=59392), CpuDevice(id=61440), CpuDevice(id=63488), CpuDevice(id=65536), CpuDevice(id=67584), CpuDevice(id=69632), CpuDevice(id=71680), CpuDevice(id=73728), CpuDevice(id=75776), CpuDevice(id=77824), CpuDevice(id=79872), CpuDevice(id=81920), CpuDevice(id=83968), CpuDevice(id=86016), CpuDevice(id=88064), CpuDevice(id=90112), CpuDevice(id=92160), CpuDevice(id=94208), CpuDevice(id=96256), CpuDevice(id=98304), CpuDevice(id=100352), CpuDevice(id=102400), CpuDevice(id=104448), CpuDevice(id=106496), CpuDevice(id=108544), CpuDevice(id=110592), CpuDevice(id=112640), CpuDevice(id=114688), CpuDevice(id=116736), CpuDevice(id=118784), CpuDevice(id=120832), CpuDevice(id=122880), CpuDevice(id=124928), CpuDevice(id=126976), CpuDevice(id=129024), CpuDevice(id=131072), CpuDevice(id=133120), CpuDevice(id=135168), CpuDevice(id=137216), CpuDevice(id=139264), CpuDevice(id=141312), CpuDevice(id=143360), CpuDevice(id=145408), CpuDevice(id=147456), CpuDevice(id=149504), CpuDevice(id=151552), CpuDevice(id=153600), CpuDevice(id=155648), CpuDevice(id=157696), CpuDevice(id=159744), CpuDevice(id=161792), CpuDevice(id=163840), CpuDevice(id=165888), CpuDevice(id=167936), CpuDevice(id=169984), CpuDevice(id=172032), CpuDevice(id=174080), CpuDevice(id=176128), CpuDevice(id=178176), CpuDevice(id=180224), CpuDevice(id=182272), CpuDevice(id=184320), CpuDevice(id=186368), CpuDevice(id=188416), CpuDevice(id=190464), CpuDevice(id=192512), CpuDevice(id=194560), CpuDevice(id=196608), CpuDevice(id=198656), CpuDevice(id=200704), CpuDevice(id=202752), CpuDevice(id=204800), CpuDevice(id=206848), CpuDevice(id=208896), CpuDevice(id=210944), CpuDevice(id=212992), CpuDevice(id=215040), CpuDevice(id=217088), CpuDevice(id=219136), CpuDevice(id=221184), CpuDevice(id=223232), CpuDevice(id=225280), CpuDevice(id=227328), CpuDevice(id=229376), CpuDevice(id=231424), CpuDevice(id=233472), CpuDevice(id=235520), CpuDevice(id=237568), CpuDevice(id=239616), CpuDevice(id=241664), CpuDevice(id=243712)]
+*** XLA Local devices recognized by JAX***
+['Rank 0: [CpuDevice(id=0)]', 'Rank 1: [CpuDevice(id=2048)]', 'Rank 2: [CpuDevice(id=4096)]', 'Rank 3: [CpuDevice(id=6144)]', 'Rank 4: [CpuDevice(id=8192)]', 'Rank 5: [CpuDevice(id=10240)]', 'Rank 6: [CpuDevice(id=12288)]', 'Rank 7: [CpuDevice(id=14336)]', 'Rank 8: [CpuDevice(id=16384)]', 'Rank 9: [CpuDevice(id=18432)]', 'Rank 10: [CpuDevice(id=20480)]', 'Rank 11: [CpuDevice(id=22528)]', 'Rank 12: [CpuDevice(id=24576)]', 'Rank 13: [CpuDevice(id=26624)]', 'Rank 14: [CpuDevice(id=28672)]', 'Rank 15: [CpuDevice(id=30720)]', 'Rank 16: [CpuDevice(id=32768)]', 'Rank 17: [CpuDevice(id=34816)]', 'Rank 18: [CpuDevice(id=36864)]', 'Rank 19: [CpuDevice(id=38912)]', 'Rank 20: [CpuDevice(id=40960)]', 'Rank 21: [CpuDevice(id=43008)]', 'Rank 22: [CpuDevice(id=45056)]', 'Rank 23: [CpuDevice(id=47104)]', 'Rank 24: [CpuDevice(id=49152)]', 'Rank 25: [CpuDevice(id=51200)]', 'Rank 26: [CpuDevice(id=53248)]', 'Rank 27: [CpuDevice(id=55296)]', 'Rank 28: [CpuDevice(id=57344)]', 'Rank 29: [CpuDevice(id=59392)]', 'Rank 30: [CpuDevice(id=61440)]', 'Rank 31: [CpuDevice(id=63488)]', 'Rank 32: [CpuDevice(id=65536)]', 'Rank 33: [CpuDevice(id=67584)]', 'Rank 34: [CpuDevice(id=69632)]', 'Rank 35: [CpuDevice(id=71680)]', 'Rank 36: [CpuDevice(id=73728)]', 'Rank 37: [CpuDevice(id=75776)]', 'Rank 38: [CpuDevice(id=77824)]', 'Rank 39: [CpuDevice(id=79872)]', 'Rank 40: [CpuDevice(id=81920)]', 'Rank 41: [CpuDevice(id=83968)]', 'Rank 42: [CpuDevice(id=86016)]', 'Rank 43: [CpuDevice(id=88064)]', 'Rank 44: [CpuDevice(id=90112)]', 'Rank 45: [CpuDevice(id=92160)]', 'Rank 46: [CpuDevice(id=94208)]', 'Rank 47: [CpuDevice(id=96256)]', 'Rank 48: [CpuDevice(id=98304)]', 'Rank 49: [CpuDevice(id=100352)]', 'Rank 50: [CpuDevice(id=102400)]', 'Rank 51: [CpuDevice(id=104448)]', 'Rank 52: [CpuDevice(id=106496)]', 'Rank 53: [CpuDevice(id=108544)]', 'Rank 54: [CpuDevice(id=110592)]', 'Rank 55: [CpuDevice(id=112640)]', 'Rank 56: [CpuDevice(id=114688)]', 'Rank 57: [CpuDevice(id=116736)]', 'Rank 58: [CpuDevice(id=118784)]', 'Rank 59: [CpuDevice(id=120832)]', 'Rank 60: [CpuDevice(id=122880)]', 'Rank 61: [CpuDevice(id=124928)]', 'Rank 62: [CpuDevice(id=126976)]', 'Rank 63: [CpuDevice(id=129024)]', 'Rank 64: [CpuDevice(id=131072)]', 'Rank 65: [CpuDevice(id=133120)]', 'Rank 66: [CpuDevice(id=135168)]', 'Rank 67: [CpuDevice(id=137216)]', 'Rank 68: [CpuDevice(id=139264)]', 'Rank 69: [CpuDevice(id=141312)]', 'Rank 70: [CpuDevice(id=143360)]', 'Rank 71: [CpuDevice(id=145408)]', 'Rank 72: [CpuDevice(id=147456)]', 'Rank 73: [CpuDevice(id=149504)]', 'Rank 74: [CpuDevice(id=151552)]', 'Rank 75: [CpuDevice(id=153600)]', 'Rank 76: [CpuDevice(id=155648)]', 'Rank 77: [CpuDevice(id=157696)]', 'Rank 78: [CpuDevice(id=159744)]', 'Rank 79: [CpuDevice(id=161792)]', 'Rank 80: [CpuDevice(id=163840)]', 'Rank 81: [CpuDevice(id=165888)]', 'Rank 82: [CpuDevice(id=167936)]', 'Rank 83: [CpuDevice(id=169984)]', 'Rank 84: [CpuDevice(id=172032)]', 'Rank 85: [CpuDevice(id=174080)]', 'Rank 86: [CpuDevice(id=176128)]', 'Rank 87: [CpuDevice(id=178176)]', 'Rank 88: [CpuDevice(id=180224)]', 'Rank 89: [CpuDevice(id=182272)]', 'Rank 90: [CpuDevice(id=184320)]', 'Rank 91: [CpuDevice(id=186368)]', 'Rank 92: [CpuDevice(id=188416)]', 'Rank 93: [CpuDevice(id=190464)]', 'Rank 94: [CpuDevice(id=192512)]', 'Rank 95: [CpuDevice(id=194560)]', 'Rank 96: [CpuDevice(id=196608)]', 'Rank 97: [CpuDevice(id=198656)]', 'Rank 98: [CpuDevice(id=200704)]', 'Rank 99: [CpuDevice(id=202752)]', 'Rank 100: [CpuDevice(id=204800)]', 'Rank 101: [CpuDevice(id=206848)]', 'Rank 102: [CpuDevice(id=208896)]', 'Rank 103: [CpuDevice(id=210944)]', 'Rank 104: [CpuDevice(id=212992)]', 'Rank 105: [CpuDevice(id=215040)]', 'Rank 106: [CpuDevice(id=217088)]', 'Rank 107: [CpuDevice(id=219136)]', 'Rank 108: [CpuDevice(id=221184)]', 'Rank 109: [CpuDevice(id=223232)]', 'Rank 110: [CpuDevice(id=225280)]', 'Rank 111: [CpuDevice(id=227328)]', 'Rank 112: [CpuDevice(id=229376)]', 'Rank 113: [CpuDevice(id=231424)]', 'Rank 114: [CpuDevice(id=233472)]', 'Rank 115: [CpuDevice(id=235520)]', 'Rank 116: [CpuDevice(id=237568)]', 'Rank 117: [CpuDevice(id=239616)]', 'Rank 118: [CpuDevice(id=241664)]', 'Rank 119: [CpuDevice(id=243712)]']
+
+jax:    0.7.2
+jaxlib: 0.7.2
+numpy:  2.4.6
+python: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+device info: cpu-120, 1 local devices"
+process_count: 120
+platform: uname_result(system='Linux', node='test-host', release='test-release', version='test-version', machine='x86_64')
+XLA_FLAGS=--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1
+Input file = aiida.toml
+
+Input parameters are::
+
+**section:control**
+  job_type=mcmc
+  mcmc_seed=34478
+  number_of_walkers=4
+  verbosity=high
+  restart=False
+  restart_chk=restart.h5
+  hamiltonian_h5=hamiltonian_data.h5
+  max_time=1620
+
+**section:mcmc**
+  num_mcmc_steps=130
+  num_mcmc_per_measurement=40
+  num_mcmc_warmup_steps=30
+  num_mcmc_bin_blocks=10
+  Dt=1.5
+  epsilon_AS=0.0
+  atomic_force=False
+  compute_stress=False
+  use_swct=True
+  parameter_derivatives=False
+
+**section:coulomb**
+  mpc=True
+  mpc_cutoff=30.0
+
+**section:precision**
+  mode=mixed
+
+JAX backend = cpu.
+Execution backend = XLA + Rust.
+Rust rayon threads = 1 (per MPI rank).
+
+***Variational Monte Carlo***
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-up): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+MO orthonormality (SD_data spin-dn): max|M_ii - 1| = 3.063e-08, max_(i!=j) |M_ij|/sqrt(M_ii M_jj) = 7.283e-09.
+  initial r_up_carts= [[[ 5.08631542  4.98111616  0.7990912 ]
+  [ 3.24514137  2.23155247  2.77833323]
+  [ 5.08186277  9.5400167   5.07133638]
+  [ 2.8971005   2.78958836  2.92569464]]
+
+ [[ 0.75726323  5.04907241  4.99636332]
+  [ 2.63897755  2.65682987  2.62867498]
+  [ 9.45757778  4.95629894  5.18550314]
+  [ 2.26727177  2.6541759   3.42962807]]
+
+ [[ 5.0821182  10.01179916  5.16283029]
+  [ 2.3907817   2.31420023  2.30054753]
+  [ 0.15910815  5.12093349  4.99279493]
+  [ 2.60962223  2.6132988   2.48906188]]
+
+ [[ 0.28678219  0.13096508  0.24737155]
+  [ 2.58389904  2.97628218  2.61756065]
+  [ 9.92177216  5.14373895  4.97697257]
+  [ 2.57264304  2.64256111  2.4210433 ]]]
+  initial r_dn_carts = [[[ 5.25274988  9.49077051  5.54074514]
+  [ 2.72214716  2.80312472  2.80738744]
+  [ 5.04166945  5.21640406  9.75607802]
+  [ 2.66243907  2.10241537  1.71442862]]
+
+ [[10.04977286  5.15319153  5.22298255]
+  [ 2.40126105  2.06074481  2.01342317]
+  [ 5.12454722  9.75567169  4.91727664]
+  [ 2.52396164  2.59774046  2.23127023]]
+
+ [[ 5.0862103   5.07921145  9.98515366]
+  [ 2.19582688  2.05465464  2.17329306]
+  [10.01058716  9.98972137 10.12562217]
+  [ 2.46105197  2.6670297   2.38045969]]
+
+ [[ 5.17884716  4.97771132  9.54281695]
+  [ 2.76774351  2.66076469  2.91411393]
+  [ 5.45024987  9.84204307  5.20591522]
+  [ 3.09269193  2.98810744  3.17537922]]]
+  initial r_up_carts.shape = (4, 4, 3)
+  initial r_dn_carts.shape = (4, 4, 3)
+
+The number of MPI process = 120.
+The number of walkers assigned for each MPI process = 4.
+
+MPC setup: building the tables on rank 0 and broadcasting them to 120 ranks.
+MPC setup: cutoff = 30.0 Ha, grid = (64, 64, 64), n_max = 3; g_G is extrapolated from the N, 2N and 4N grids.
+  MPC setup: g_G on the 1N grid (64, 64, 64) done in 1.1 sec.
+  MPC setup: g_G on the 2N grid (128, 128, 128) done in 1.4 sec.
+  MPC setup: g_G on the 4N grid (256, 256, 256) done in 3.6 sec.
+  MPC setup: trial density on the (64, 64, 64) grid done in 4.0 sec.
+MPC setup: done in 11.9 sec.
+==================================================================
+Printing out precision information.
+==================================================================
+Precision: Mixed Precision (FP32 + FP64)
+Zone detail:
+  ao_eval: float32
+  ao_grad_lap: float64
+  coulomb: float64
+  det_eval: float64
+  det_grad_lap: float64
+  det_ratio: float64
+  ewald: float64
+  jastrow_eval: float32
+  jastrow_grad_lap: float32
+  jastrow_ratio: float64
+  local_energy: float64
+  mo_eval: float64
+  mo_grad: float64
+  mo_lap: float64
+  swct: float64
+  wf_eval: float64
+  wf_kinetic: float64
+  wf_ratio: float64
+==================================================================
+
+==================================================================
+Printing out information in hamiltonian_data instance.
+==================================================================
+**Structure_data
+  PBC flag = True
+  vec A = [0.         5.08430814 5.08430814] Bohr
+  vec B = [5.08430814 0.         5.08430814] Bohr
+  vec C = [5.08430814 5.08430814 0.        ] Bohr
+  --------------------------------------------------
+  element, label, Z, x, y, z in cartesian (Bohr)
+  --------------------------------------------------
+  Si, Si, 14.0, 0.00000000, 0.00000000, 0.00000000
+  Si, Si, 14.0, 2.54215407, 2.54215407, 2.54215407
+  --------------------------------------------------
+**Coulomb_potential_data
+  ecp_flag = True
+**Ewald_data
+  eta = 0.633656 Bohr^-1
+  r_real_cut = 7.5728 Bohr
+  g_max = 6.0812 Bohr^-1
+  N_real_images = 381
+  N_g = 964
+  ii_energy = -8.4759584159 Ha
+**SD_data
+  occupied MO rows (up, dn) = (4, 4)
+  num_electron_up = 4
+  num_electron_dn = 4
+  time_reversal = True
+**MOs_data
+  Number of MOs = 4
+  dim. of MOs coeff = (4, 4)
+**AOs_bspline_data
+  Number of AOs = 4
+  spline grid shape (N0, N1, N2) = (36, 36, 36)
+  spline order (degree) = 5
+  control points per AO = 46656
+  total stored coefficients (num_ao * cp_per_ao) = 186624
+  complex (k != 0) path = False
+**MOs_data
+  Number of MOs = 4
+  dim. of MOs coeff = (4, 4)
+**AOs_bspline_data
+  Number of AOs = 4
+  spline grid shape (N0, N1, N2) = (36, 36, 36)
+  spline order (degree) = 5
+  control points per AO = 46656
+  total stored coefficients (num_ao * cp_per_ao) = 186624
+  complex (k != 0) path = False
+**Jastrow_DTN_data
+  terms: use_u=True, use_chi=True, use_f=True; electron-nucleus cusp constrained; C=4
+  orders: N_u=8, N_chi=8, N_eN=4, N_ee=4
+  cutoffs: L_u=3.4154, L_chi=[3.4153913241259723], L_f=[1.7076956620629862]
+  cutoff ratios: u=0.9500, chi=[0.95], f=[0.95] (comoving volumetric stress policy)
+  indep coefs: alpha=(2, 8), beta=(1, 8), gamma=(1, 57)
+==================================================================
+external_control_mcmc.toml is generated. 
+
+Start compilation of the MCMC_update funciton.
+End compilation of the MCMC_update funciton.
+Elapsed Time = 5.68 sec.
+
+[memory] stage=mcmc_post_warmup, RSS_peak_max=1.19 GB
+Start MCMC
+  Progress: MCMC step = 0/130: 0.0 %. Elapsed time = 0.0 sec.
+  Progress: MCMC step = 50/130: 38.5 %. Elapsed time = 0.9 sec.
+  Progress: MCMC step = 100/130: 76.9 %. Elapsed time = 1.7 sec.
+  Progress: MCMC step = 130/130: 100.0 %. Elapsed time = 2.2 sec.
+End MCMC
+
+Delete external_control_mcmc.toml
+Total elapsed time for MCMC 130 steps. = 8.73 sec.
+Pre-compilation time for MCMC = 5.61 sec.
+Net total time for MCMC = 3.12 sec.
+Elapsed times per MCMC step, averaged over 130 steps.
+  Time for MCMC update = 10.47 msec.
+  Time for computing e_L = 0.01 msec.
+  Time for computing de_L/dR and de_L/dr = 0.00 msec.
+  Time for computing dln_Psi/dR and dln_Psi/dr = 0.00 msec.
+  Time for computing dln_Psi/dc = 0.00 msec.
+  Time for computing de_L/dc = 0.00 msec.
+  Time for MPI barrier after MCMC update = 0.01 msec.
+  Time for misc. (others) = 13.50 msec.
+Average of walker weights is 1.000. Ideal is ~ 0.800. Adjust epsilon_AS.
+Acceptance ratio is 69.03 %.  Ideal is ~ 50.00%. Adjust Dt.
+
+[memory] stage=mcmc_post_run, RSS_peak_max=1.19 GB
+Dump restart checkpoint file(s) to restart.h5.
+
+Final output(s):
+  Total Energy: E = -7.21769 +- 0.00349 Ha.
+  Variance: Var = 0.35408 +- 0.00305 Ha^2.
+  MPC correction: dE_MPC = +0.17547 +- 0.00080 Ha (cutoff = 30.0 Ha).
+  Total Energy (MPC-corrected): E_MPC = -7.04222 +- 0.00405 Ha.
+
+Program ends 2026-10-29 20:14:37

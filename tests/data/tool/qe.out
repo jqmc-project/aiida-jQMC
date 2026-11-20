@@ -1,0 +1,14 @@
+Auto-discovered 1 UPF entries from pw/out/li.save/data-file-schema.xml: Li=pw/out/li.save/Li.ccECP.upf
+Loaded QE reference from pw/out/li.save: 2 atoms, 8 bands, 2301 G-vectors, ecutwfc=30.000 Ha.
+
+UPFExponentInit: tight-extension g_target=7.746 Bohr^-1 (= sqrt(2 * ecutwfc_QE) = sqrt(2 * 30.000 Ha)); AE diffuse floor cell_min_edge=6.633 Bohr (shortest lattice vector).
+extend_shells_tight: l=1 alpha_max 0.4787 -> 1.197 (added 1 primitive(s) via ratio=2.50, alpha_target=2.171); new overlap_cond=2.79e+05.
+PW->pGTO (Fourier): n_pw_QE=2301, alpha_min=off, 42 pGTO primitives.
+  Projecting 1 bands onto 42 pGTO in PW space (G^H G + eigh)...
+PW->pGTO projection: 1 bands, 42 pGTO columns, mean residual 1.176e-06, max residual 1.176e-06, generated-AO full cond(S) inf, dropped 12.
+
+MO orthonormalization (pgto, 1 MOs, band-order Cholesky in the AO metric): normalized non-orthogonality before 0.000e+00, MO norms^2 in [9.999989e-01, 9.999989e-01] before, max|conj(C) S C^T - I| after 1.110e-15.
+build_wavefunction_from_projection(kind=pgto): 42 AOs, 1 MOs, ne_up=1, ne_dn=1.
+build_hamiltonian_from_wavefunction: pbc=True, ne_up=1, ne_dn=1, j1=off, j2=off.
+
+Hamiltonian data is saved in hamiltonian_data.h5.

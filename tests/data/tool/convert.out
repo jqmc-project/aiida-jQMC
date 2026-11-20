@@ -1,0 +1,5 @@
+pbc_flag = False
+num_ele_up = 1, num_ele_dn = 1, spin_polarized = False
+spin_dependent MOs = False
+Cartesian basis functions.
+Hamiltonian data is saved in hamiltonian_data.h5.

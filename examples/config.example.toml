@@ -1,0 +1,56 @@
+# Copy to config.toml and adapt. Codes are AiiDA code labels.
+profile = "<profile>"
+jqmc_examples = "/path/to/jQMC/examples"   # the jQMC tutorials of your jqmc version
+scale = 0.02          # fraction of the tutorial run lengths (1 = as published)
+
+[codes]
+jqmc = "jqmc@<computer>"
+jqmc_gpu = "jqmc-gpu@<computer>"         # a GPU (JAX CUDA) build, for jqmc-workflow-example02
+tool_local = "jqmc-tool@localhost"   # conversions of local files
+tool_remote = "jqmc-tool@<computer>"     # post-processing of checkpoints (same computer as jqmc)
+pyscf = "python-pyscf@localhost"     # a Python with PySCF and TREXIO
+pw = "pw@localhost"                  # pw.x built with HDF5
+pw_serial = "pw-serial@localhost"    # the same pw.x, without MPI
+
+[tool_code_for]
+convert = "tool_local"
+tool = "tool_remote"
+
+[options.jqmc]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 4 } # adapt to the selected computer
+queue_name = "<queue>"
+account = "<account>"
+max_wallclock_seconds = 1800
+
+[options.tool]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 1 }
+queue_name = "<queue>"
+account = "<account>"
+max_wallclock_seconds = 600
+
+[options.convert]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 1 }
+
+[options.shell]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 1 }
+# PySCF writes warnings to stderr on success
+redirect_stderr = true
+
+[options.pw]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 4 }
+withmpi = true
+# pw.x (gfortran) writes floating-point notes to stderr on success
+redirect_stderr = true
+
+[options.pw_serial]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 1 }
+withmpi = false
+redirect_stderr = true
+
+[options.gpu]
+resources = { num_machines = 1, num_mpiprocs_per_machine = 1 }
+# GPUs are requested as the scheduler expects them; e.g. with core.slurm:
+custom_scheduler_commands = "#SBATCH --gpus=1"
+queue_name = "<gpu-queue>"
+account = "<account>"
+max_wallclock_seconds = 3600

@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/path/to/bin/jqmc", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/path/to/jqmc/_cli_entry.py", line 63, in main
+    return run_job()
+           ^^^^^^^^^
+  File "/path/to/jqmc/jqmc_cli.py", line 1702, in main
+    return _cli()
+           ^^^^^^
+  File "/path/to/jqmc/jqmc_cli.py", line 1387, in _cli
+    raise ValueError(
+ValueError: num_gfmc_warmup_steps (10) must be >= 25. E_scf is unreliable before step 25.
